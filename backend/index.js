@@ -1,11 +1,14 @@
 const express = require("express");
 const { rentishDB } = require("./config/db");
+const { userRouter } = require("./routes/user.routes");
 require("dotenv").config();
 
 const app = express();
 
 
 app.use(express.json());
+
+app.use("/users",userRouter)
 
 
 

@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema(
     },
     password: {
         type: String, 
-        required: true 
+        required: true
     },
     city: {
         type: String, 
@@ -31,11 +31,19 @@ const userSchema = mongoose.Schema(
     },
     isAdmin: { 
         type: Boolean,
-        required:true 
+        required:false,
+        default:false
     },
     isActive:{
         type:Boolean,
-        required:true
+        required:false,
+        default:false
+    },
+    phone:{
+        type:Number,
+        maxLength:10,
+        require:false,
+        default:1
     }
   },
 
