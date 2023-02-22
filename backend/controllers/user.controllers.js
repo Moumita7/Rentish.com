@@ -112,7 +112,6 @@ const getSingleUser = async (req, res) => {
 //? UPDATE THE USER INFORMATION
 
 const updateUser = async (req, res) => {
-  console.log("req:", req.body);
   if (
     req.loggedUser.userId === req.params.Id ||
     req.loggedUser.isAdmin === true

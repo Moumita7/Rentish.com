@@ -5,12 +5,10 @@ const { userValidator } = require("../middlewares/user.validator.middleware");
 
 const userRouter = express.Router()
 
-userRouter.get("/",userValidator,getAllUser)
+userRouter.get("/",userValidator,getAllUser);
 userRouter.post("/register",register);
 userRouter.post("/login",login);
-userRouter.get("/:Id",userValidator,getSingleUser)
-userRouter.patch("/:Id",userValidator,updateUser)
-userRouter.delete("/:Id",userValidator,deleteUser)
-
-
+userRouter.get("/:Id",userValidator,getSingleUser);
+userRouter.patch("/:Id",userValidator,updateUser);
+userRouter.delete("/:Id",userValidator,deleteUser);
 module.exports  = {userRouter}
