@@ -1,12 +1,8 @@
-import React from "react"
-import Home from "./Pages/Home/Home"
-import AllRoutes from "./Pages/Home/AllRoutes"
-function App() {
+import React from 'react'
 
+const App = () => {
   return (
-    <div className="App">
-      <AllRoutes/>
-    </div>
+    <div>App</div>
   )
 }
 
