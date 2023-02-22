@@ -34,8 +34,8 @@ nav("/location")
          {Img && Img.map((el,i)=>(
         <div key={i} style={{width:"95%", textAlign:"center"}} onClick={handleClick} >
         <img src={el.img} alt={i} style={{width:"100%"}}/>
-        <h3 style={{textAlign:"center"}} >{el.price}</h3>
-        <h3 style={{ textAlign:"center", fontWeight:"bold"}}>{el.title}</h3>
+        <h3 style={{textAlign:"center",fontWeight:'bold',fontSize:'18px',color:'#8a8f8f'}} >{el.price}</h3>
+        <h3 style={{ textAlign:"center", fontWeight:"bold",fontSize:'18px'}}>{el.title}</h3>
         </div>
          ))}
           
