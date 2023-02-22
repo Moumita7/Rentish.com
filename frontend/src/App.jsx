@@ -1,8 +1,10 @@
 import React from 'react'
-
+import AllRoutes from "./Pages/Home/AllRoutes";
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <AllRoutes/>
+    </div>
   )
 }
 
