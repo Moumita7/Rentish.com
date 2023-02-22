@@ -1,9 +1,12 @@
-import React from 'react'
-import AllRoutes from "./Pages/Home/AllRoutes";
-const App = () => {
+
+import Payment from "./Pages/Payment/Payment"
+
+function App() {
+
   return (
-    <div>
-      <AllRoutes/>
+    <div className="App">
+     <Payment/>
+
     </div>
   )
 }
