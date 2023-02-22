@@ -2,11 +2,16 @@ const mongoose = require("mongoose");
 
 const carSchema = mongoose.Schema(
   {
+    hosted_by:{
+      type:String,
+      required:true,
+      default:"rentish"
+    },
     owner: {
       type: String,
       required: true,
     },
-    url: [{ type: [String], required: true }],
+    url: [{ type: String, required: true }],
     rating: {
       type: Number,
       default: 0,
@@ -17,7 +22,11 @@ const carSchema = mongoose.Schema(
     },
     city: { 
         type: String, 
-        required: true 
+        required: true,
+        enum:{
+          values:["Bangalore","Bhopal","Delhi","Hyderabad","Indore","Mumbai"],
+          message:"Sorry, Currently we are not available in your place."
+        } 
     },
     car_title: { 
         type: String, 
@@ -25,26 +34,33 @@ const carSchema = mongoose.Schema(
     },
     transmission: { 
         type: String, 
-        required: true 
+        required: true,
+        enum:["Manual","Automatic"] 
     },
     fuel_type: { 
         type: String, 
-        required: true 
+        required: true,
+        enum:["Petrol","Diesel"] 
     },
     seats: { 
         type: Number, 
-        required: true 
+        required: true,
+        enum: 
+        {
+          values:[2,5,7],
+          message:"You can only select these seat quantity. Ex.'2,5,7' "
+        } 
     },
-    revenue_price_discounted: { 
+    per_hour_charge: { 
         type: Number, 
         required: true 
     },
-    revenue_distance: { 
+    km_away: { 
         type: Number, 
         required: true 
     },
   },
-  { versionKey: fales }
+  { versionKey: false,timestamps:true}
 );
 
 const CarModel = mongoose.model("car",carSchema);

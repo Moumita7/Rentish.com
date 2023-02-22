@@ -1,14 +1,17 @@
 const express = require("express");
 const { rentishDB } = require("./config/db");
 const { userRouter } = require("./routes/user.routes");
+const { carRouter } = require("./routes/car.routes");
 require("dotenv").config();
 
 const app = express();
 
-
 app.use(express.json());
 
-app.use("/users",userRouter)
+app.use("/users",userRouter);
+app.use("/cars",carRouter);
+
+
 app.get("*",(req,res)=>{
     res.status(404).json({message:"Wrong endpoint"})
 })

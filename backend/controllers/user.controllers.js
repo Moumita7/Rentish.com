@@ -47,6 +47,7 @@ const login = async (req, res) => {
               {
                 userId: check[0]._id,
                 isAdmin: check[0].isAdmin,
+                city:check[0].city
               },
               process.env.secretKey,
               { expiresIn: "1h" }
