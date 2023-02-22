@@ -1,8 +1,10 @@
+import Payment from "./Pages/Payment/Payment"
+
 function App() {
 
   return (
     <div className="App">
-      <h1>home</h1>
+     <Payment/>
     </div>
   )
 }
