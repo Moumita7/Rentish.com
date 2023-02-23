@@ -5,7 +5,8 @@ const userValidator  = (req,res,next) =>{
     const token = req.headers.authentication;
     jwt.verify(token, process.env.secretKey, (err, decoded) =>{
             if(decoded){
-                req.loggedUser = {userId:decoded.userId,isAdmin:decoded.isAdmin};
+                console.log('decoded:', decoded)
+                req.loggedUser = {userId:decoded.userId,isAdmin:decoded.isAdmin,city:decoded.city};
                 next()
             }
             else{
