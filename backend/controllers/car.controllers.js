@@ -16,21 +16,6 @@ const postCar = async(req,res) =>{
 
 //! GETTING ALL THE CARS
 
-/*
-All queries
-_city
-_distance
-_popularity
-
-
-filters
-_seats
-feul_type
-_transmission
-_rating
-
-url = http://localhost:4500/cars?distance=asc&popularity=dec
-*/
 const getAllCars = async(req,res)=>{
     const queries = req.query
     let obj = {
