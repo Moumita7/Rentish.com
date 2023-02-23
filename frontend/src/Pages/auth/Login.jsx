@@ -14,12 +14,13 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
+  // Link,
   Select,
   Image,
   InputLeftElement
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ViewIcon, ViewOffIcon,PhoneIcon } from '@chakra-ui/icons';
 
 const Login = () => {
@@ -93,7 +94,7 @@ const Login = () => {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Dont Have an Account? <Link color={'#00BE2D'}>Sign Up</Link>
+                Dont Have an Account? <Link to="/signup" color={'#00BE2D'}>Sign Up</Link>
               </Text>
             </Stack>
           </Stack>

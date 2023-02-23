@@ -30,7 +30,7 @@ const Navbar = () => {
      
           <Link to='/userdashboard'> <button className='admin-button'>USER</button></Link>
 
-        <button className='login-button' onClick={handlelogout}>LOGIN</button>
+          <Link to='/login'><button className='login-button' onClick={handlelogout}>Login</button></Link>
       </div>
 
       <div className='hum'>

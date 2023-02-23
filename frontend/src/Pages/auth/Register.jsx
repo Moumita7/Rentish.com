@@ -14,12 +14,13 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
+  // Link,
   Select,
   Image,
   InputLeftElement
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ViewIcon, ViewOffIcon,PhoneIcon } from '@chakra-ui/icons';
 
 const Register = () => {
@@ -107,7 +108,7 @@ const Register = () => {
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link color={'#00BE2D'}>Login</Link>
+                Already a user? <Link to="/login" color={'#00BE2D'}>Login</Link>
               </Text>
             </Stack>
           </Stack>
