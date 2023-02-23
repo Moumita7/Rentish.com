@@ -2,14 +2,20 @@ const express = require("express");
 const { rentishDB } = require("./config/db");
 const { userRouter } = require("./routes/user.routes");
 const { carRouter } = require("./routes/car.routes");
+const { CarModel } = require("./models/car.model");
 require("dotenv").config();
 
 const app = express();
 
 app.use(express.json());
-app.post("/sending",(req,res)=>{
-    res.send("Yes i'm working")
-})
+// app.post("/sending",async(req,res)=>{
+//     try{
+//         await CarModel.insertMany()
+//         res.send("data has been updated")
+//     }catch(err){
+//         res.send(err.message)
+//     }
+// })
 app.use("/users",userRouter);
 app.use("/cars",carRouter);
 
