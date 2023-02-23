@@ -4,12 +4,12 @@ const MobileWallet = () => {
   return (
     <>
     <div className='walletdiv'>
-            <div className='upi_heading'  style={{marginTop:"-20px"}}>
+            <div className='upi_heading'  >
             <div>
-                <p className='upi_content_head' style={{fontSize:"20px"}}>Mobile Wallet</p> 
+                <p className='upi_content_head' >Mobile Wallet</p> 
                 <p>Amount: ₹2380.0</p>
             </div>
-            <div>
+            <div style={{marginTop:"30px"}}>
                 <img src="https://www.zoomcar.com/build/760ee3019ff287f2caed7e40c92b1ca5.png" alt="sdv" />
             </div>
         </div>
@@ -24,7 +24,7 @@ const MobileWallet = () => {
         <p>Securely save card details</p>
         </div>
         
-        <button style={{marginTop:"80px"}}>PAY ₹2380.0</button>
+        <button style={{marginTop:"90px"}}>PAY ₹2380.0</button>
     </div>
     </div>
     </>

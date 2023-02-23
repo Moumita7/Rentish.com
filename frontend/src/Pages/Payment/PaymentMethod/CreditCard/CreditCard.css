@@ -18,33 +18,35 @@
     margin-top: -13px;
 }
 .cardnumber{
-    width: 350px;
+    width: 330px;
     height: 50px;
     margin: auto;
+    margin-left: 10px;
 }
 
 .carddetail{
-    width: 165px;
+    width: 155px;
     height: 50px;
     margin-top: 15px; 
-}
-.cvv{
     margin-left: 10px;
 }
+
 .cardsubmmit {
     padding:    0px 0px;
 }
 .cardsubmmit button{
-  width: 370px;
+  width: 360px;
   height: 55px;
   font-size: 20px;
   background-color: rgb(155, 231, 231);
   border: none;
   border-radius: 15px;
+  margin-left: 10px;
 }
 .check{
     display: flex;
     flex-direction: row;
+    padding-left: 10px;
 }
  .cardNumber_div input[type="number"]{
     font-size: 17px;
