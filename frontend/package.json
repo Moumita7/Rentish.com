@@ -14,9 +14,14 @@
     "@chakra-ui/react": "^2.5.1",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+
+    "framer-motion": "^9.0.4",
+    "node-modules": "^1.0.1",
+
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "framer-motion": "^9.0.7",
     "qrcode.react": "^3.1.0",
+
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
@@ -25,7 +30,10 @@
     "react-router-dom": "^6.8.1",
     "react-slick": "^0.29.0",
     "redux": "^4.2.1",
+
     "redux-thunk": "^2.4.2"
+
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

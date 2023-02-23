@@ -1,7 +1,10 @@
+
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
+import Home from "../Pages/Home/Home";
+import Location from "../Pages/Home/Location";
 // import Admin from "../Pages/Admin/Admin";
 // import Home from "../Pages/Home/Home";
 import Payment from "../pages/Payment/Payment";
@@ -11,6 +14,8 @@ export default function AllRoutes() {
   return (
     <div>
       <Routes>
+       <Route  path="/"  element={<Home/>} />
+            <Route  path="/location"  element={<Location/>} />
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route
           path="/payment"
@@ -30,3 +35,5 @@ export default function AllRoutes() {
     </div>
   );
 }
+
+

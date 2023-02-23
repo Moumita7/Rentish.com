@@ -7,7 +7,9 @@ require("dotenv").config();
 const app = express();
 
 app.use(express.json());
-
+app.post("/sending",(req,res)=>{
+    res.send("Yes i'm working")
+})
 app.use("/users",userRouter);
 app.use("/cars",carRouter);
 

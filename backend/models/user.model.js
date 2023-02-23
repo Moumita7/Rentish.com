@@ -16,7 +16,11 @@ const userSchema = mongoose.Schema(
     },
     city: {
         type: String, 
-        required: true 
+        required: true,
+        enum:{
+            values:["Bangalore","Bhopal","Delhi","Hyderabad","Indore","Mumbai"],
+            message:"Sorry, Currently we are not available in your place."
+          }  
     },
     gender: {
         type: String, 
