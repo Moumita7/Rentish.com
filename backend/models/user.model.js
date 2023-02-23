@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema(
         type: String, 
         required: true,
         enum:{
-            values:["Bangalore","Bhopal","Delhi","Hyderabad","Indore","Mumbai"],
+            values:["Bangalore","Bhopal","Delhi","Hyderabad","Indore","Mumbai","Pune"],
             message:"Sorry, Currently we are not available in your place."
           }  
     },
