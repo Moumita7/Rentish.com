@@ -55,7 +55,7 @@
 .payment_option h4{
   margin-left: 20px;
   background: #F5F5F5;
-  width: 250px;
+  width: 80%;
   font-size: 16px;
   padding: 4px;
   text-align: center;
@@ -67,7 +67,7 @@
   height: 62px;
   /* border: 1px solid gray; */
   display: flex;
-  padding: 2px 0px;
+  padding: 7px 0px;
   justify-content: flex-start;
   align-items: center;
   border-bottom:1px solid  #a8a8a8;
@@ -88,12 +88,13 @@
 .per_option img{ 
   width: 32px;
   height: 32px;
+  /* border: 1px solid red; */
 }
 
 .content_heading{
   margin-top: 10px;
   font-family: IBM Plex Sans;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 16px;
   font-weight: 400;
   letter-spacing: .4px;
@@ -108,9 +109,7 @@
   font-weight: 400;
   letter-spacing: .4px;
   color: #a8a8a8;
-
-
-
+  
 }
 
 .select_upi{
@@ -141,17 +140,18 @@ align-items: center;
   display: inline-block;
 }
 .QR_img{
-  width: 120px;
+  width: 60%;
 }
 .modal_box{
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 /* css of booking detail sectio */
+
 .booking_content{
   width: 100%;
   height: 380px;
-  /* border: 3px solid orange; */
+   /* border: 3px solid orange;  */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   
@@ -225,27 +225,28 @@ align-items: center;
 }
 .cancel{
   width: 90%;
-  height: 30px;
+  height: auto;
+  padding:4px 7px;
   border-radius: 5px;
   margin: auto;
+  margin-bottom: 3px;
   background-color: #f0f4ff;
+ font-size: 15px;
 }
 .cancel>p{
-text-align: center;
-margin-top: 8px;
-  padding: 3px;
+  margin-top: 4px;
+  text-align: center;
   font-size: 15px;
-  
   color: #5160c2;
 }
 .totalAmount{
-  width: 84%;
-  padding: 0 30px;
+  width: 100%;
+ 
   height: 14%;
   /* border: 2px solid red; */
   background-color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 .totalAmount p{
@@ -255,24 +256,147 @@ margin-top: 8px;
     letter-spacing: 1.24px;
     color: #1f1f1f  
 }
+@media (max-width: 1100px){
+ 
+  .su .content_heading{
+   
+    font-size: 15px;
+  }btext{
+   font-size: 10px;
+   /* display: none; */
+  }
+  .cancel >p{
+    font-size: 12px;
+
+  }
+  
+  .car_img{
+    width: 100%;
+    height: 100%;
+  
+  }
+  .car_img img{
+    width: 130%;
+    /* border: 2px solid red; */
+  }
+  .car_name>h2{
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 22px;}
+.car_name{
+  width: 40%;
+  height: 100%;
+  
+ 
+}
+
+  
+}
 
 
 @media (max-width: 968px) {
-  /* CSS rules for devices with a screen width of 768px or less */
+  /* CSS rules for devices with a screen width of 968px or less */
+ 
   .payment_main_box{
     display: block;
   }
-  .payment_method_box{
-    width: 50%;
-    border: 5px solid red;
+  .payment_method_box , .payment_heading{
+    width: 90%;
+    margin: auto;
+   
   }
+  .content_heading{
+   
+    font-size: 15px;
+  }
+
+  .subtext{
+    font-size: 13px;
+    /* display: none; */
+   }
+  
   .payment_method_content{
     margin: auto;
     width: 90%;
+    margin-top: 10px;
   }
+  
   .booking_detail_box{
-    width: 60%;
+    width: 80%;
     margin: auto;
     margin-top: 50px;
+  }
+  .cancel >p{
+    font-size: 15px;
+
+  }
+  .car_name>h2{
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 22px;}
+    .car_img img{
+      width: 100%;
+      /* border: 2px solid red; */
+    }
+}
+
+
+@media (max-width: 768px){
+  .payment_method_box{
+    width: 75%;
+    height: auto;
+    padding: 0 10px;  
+  }
+  .payment_method_content{
+    width: 100%;
+    height: auto;
+    display: block;
+   
+  }
+  .payment_option{
+    width: 70%;  
+    height: 100%;
+    border: 1px solid black;
+    margin: auto;
+  
+  }
+  .booking_detail_box{
+    width: 75%;
+    margin: auto;
+    margin-top: 50px;
+  }
+  .Qrcodebox{
+    width: 50%;
+  border:none;
+  margin: auto;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+ }
+  .QR_heading{
+    font-weight: 700;
+    font-size: 20px;
+   
+  }
+  .QR_img{
+    width: 60%;
+  }
+  .select_upi{
+    width: 70%;
+   
+    border: 1px solid black;
+    margin-top: 10px; 
+    padding-bottom: 15px;
+  
+  
+  }
+}
+@media (min-width: 568px){
+  
+}
+@media (max-width: 468px){
+  .content_heading{
+    font-size: 13px;
+    font-weight: 500;
   }
 }

@@ -1,0 +1,15 @@
+.booking_box{
+    width: 100%;
+    /* border: 2px solid brown; */
+    
+}
+.heading{
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 26px;
+    border-bottom: solid 1px #e0e0e0;
+    
+    margin: 0;
+    letter-spacing: 2px;
+}
