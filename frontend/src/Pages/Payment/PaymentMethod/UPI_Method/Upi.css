@@ -7,6 +7,7 @@
     justify-content: space-between;
     
 }
+
 .upi_heading >div{
     margin: 15px;
 }
@@ -18,7 +19,7 @@
     margin-top: -13px;
 }
 .upi_content_head{
-    font-size: 18   px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 24px;
     letter-spacing: 0.24px;
@@ -26,11 +27,12 @@
 }
 .upiPayment{
     width: 100%;
-    height: 60px;
+    height: 59px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid gray;
+    margin-top: 10px;
 }
 .upiPayment img{
     width: 50px;
@@ -52,11 +54,12 @@
 .upiIDSubmmit input[type="text"]{
     font-size: 17px;
     padding-left: 20px;
+    margin-left: 10px;
     
     
 }
 .upiIDSubmmit button{
-    width: 130px;
+    width: 120px;
     height: 55px;
     margin-left: 10px;
 }

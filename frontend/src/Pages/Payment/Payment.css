@@ -1,46 +1,56 @@
+
 .payment_main_box{
     width: 100%;
-    height: 500px;
-    border: 1px solid red;
+    height: auto;
+    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
-    
-    align-items: center;
+    align-items: top;
+    padding: 20px 0 200px 0;
     gap: 20px;
+    background: #F0F0F0
 }
 .payment_method_box{
   width: 55%;
-  height: auto;
-  border: 1px solid red;
+  height: 450px;
+
+  padding: 0 10px;  
   
 }
-.payment_heading p{
-    border: 1px solid red;
+.payment_heading p,.booking_heading p{
+
     display: inline-block;
-    padding: 20px 0 10px;
+    
     font-family: "IBM Plex Sans";
     font-size: 20px;
     font-weight: 600;
     line-height: 28px;
     color: #1f1f1f;
+    margin-top: 5px;
 }
 .booking_detail_box{
     width: 25%;
-    height: 80%;
-    border: 1px solid red;
+    height: 450px;
+    /* border: 2px solid brown; */
 
 }
 .payment_method_content{
     width: 100%;
-    height: 75%;
+    height: 85%;
     display: flex;
     justify-content: space-around;
     align-items: center;;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: white
+
 }
 .payment_option{
   width: 40%;  
   height: 100%;
-  border-right: 1px solid black;
+  border-right: 1px solid black;;
+}
+#focus{
+  background-color: #F0F0F0;
 }
 .payment_option h4{
   margin-left: 20px;
@@ -62,7 +72,10 @@
   align-items: center;
   border-bottom:1px solid  #a8a8a8;
 }
-
+.payment_option >:last-child{
+  border: none;
+  
+}
 .img_div{
  
   width: 70px;
@@ -103,15 +116,163 @@
 .select_upi{
   width: 50%;
  
-  border-right: 1px solid black;
+  /* border: 1px solid black; */
 height: 100%;
 margin: auto;
-padding: 10px;
+
 
 }
 .Qrcodebox{
   width: 20%;
-border: 1px solid black;
+border-left: 1px solid rgb(30, 29, 29);
 height: 100%;
+text-align: center;
+align-items: center;
 
+
+
+}
+.QR_heading{
+  font-weight: 600;
+  font-size: 18px;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 70px;
+  display: inline-block;
+}
+.QR_img{
+  width: 120px;
+}
+.modal_box{
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+/* css of booking detail sectio */
+.booking_content{
+  width: 100%;
+  height: 380px;
+  /* border: 3px solid orange; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  
+}
+.car_detail{
+  width: 100%;
+  height: 30%;
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #F0F0F0
+}
+.car_name{
+  width: 50%;
+  height: 100%;
+  /* border: 1px solid brown; */
+  margin: auto;
+  padding: 0 15px;
+}
+.car_name>h2{
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+    color: #1f1f1f;
+}
+.car_name div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: -15px;
+}
+.car_name img{
+  width: 20px;
+}
+.car_img{
+  width: 50%;
+  height: 100%;
+  /* border: 1px solid brown; */
+}
+.car_img img{
+  width: 100%;
+  /* border: 2px solid red; */
+}
+
+.sheduled_box{
+  width: 100%;
+  height: 55%;
+  border-bottom: 1px solid black;
+  background-color: white;
+ }
+.dot{
+  color: green;
+}
+.startdate{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+  margin-left: 15px;
+}
+.startdate p~p{
+  font-size: 12px;
+  margin-top: -10px;
+}
+.squaredot{
+  color :red;
+  
+}
+.cancel{
+  width: 90%;
+  height: 30px;
+  border-radius: 5px;
+  margin: auto;
+  background-color: #f0f4ff;
+}
+.cancel>p{
+text-align: center;
+margin-top: 8px;
+  padding: 3px;
+  font-size: 15px;
+  
+  color: #5160c2;
+}
+.totalAmount{
+  width: 84%;
+  padding: 0 30px;
+  height: 14%;
+  /* border: 2px solid red; */
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.totalAmount p{
+  font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 1.24px;
+    color: #1f1f1f  
+}
+
+
+@media (max-width: 968px) {
+  /* CSS rules for devices with a screen width of 768px or less */
+  .payment_main_box{
+    display: block;
+  }
+  .payment_method_box{
+    width: 50%;
+    border: 5px solid red;
+  }
+  .payment_method_content{
+    margin: auto;
+    width: 90%;
+  }
+  .booking_detail_box{
+    width: 60%;
+    margin: auto;
+    margin-top: 50px;
+  }
 }
