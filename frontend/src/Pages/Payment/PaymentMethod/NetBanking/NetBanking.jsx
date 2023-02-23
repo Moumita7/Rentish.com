@@ -3,9 +3,9 @@ import React from 'react'
 const NetBanking = () => {
   return (
     <>
-    <div className='Credit_heading' style={{marginTop:"-20px",marginBottom:"10px"}}>
+    <div className='Credit_heading' >
     <div>
-        <p className='Credit_content_head' style={{fontSize:"20px"}}>Net Banking</p> 
+        <p className='Credit_content_head upi_content_head' >Net Banking</p> 
         <p>Amount: ₹2380.0</p>
     </div>
     <div style={{marginTop:"30px"}}>
@@ -32,7 +32,7 @@ const NetBanking = () => {
   <div className='cardsubmmit'>
         
         
-        <button style={{marginTop:"5px"}} >PAY ₹2380.0</button>
+        <button style={{marginTop:"15px"}} >PAY ₹2380.0</button>
     </div>
 
   

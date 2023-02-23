@@ -3,9 +3,9 @@ import "./CreditCard.css"
 const CreditCard = () => {
   return (
     <>
-    <div className='Credit_heading' style={{marginTop:"-25px",marginBottom:"8px"}}>
+    <div className='Credit_heading'>
     <div>
-        <p className='Credit_content_head' style={{fontSize:"20px"}}>Enter Card Details</p> 
+        <p className='Credit_content_head upi_content_head' >Enter Card Details</p> 
         <p>Amount: ₹2380.0</p>
     </div>
     <div style={{marginTop:"28px"}}>
@@ -32,3 +32,5 @@ const CreditCard = () => {
 }
 
 export default CreditCard
+
+// style={{marginTop:"-25px",marginBottom:"8px"}}

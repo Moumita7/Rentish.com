@@ -4,12 +4,12 @@ const Upi = () => {
   return (
     <>
 
-  <div className='upi_heading' style={{marginTop:"-15px"}}>
+  <div className='upi_heading' >
     <div>
-        <p className='upi_content_head' style={{fontSize:"20px"}}>Select a UPI App</p> 
+        <p className='upi_content_head' >Select a UPI App</p> 
         <p>Amount: ₹2380.0</p>
     </div>
-    <div>
+    <div style={{marginTop:"30px"}}>
         <img src="https://www.zoomcar.com/build/760ee3019ff287f2caed7e40c92b1ca5.png" alt="sdv" />
     </div>
   </div>
