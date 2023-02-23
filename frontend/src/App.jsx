@@ -1,9 +1,12 @@
 
-import ProductListing from "./ProductListing"
+// import ProductListing from "./ProductListing"
 
 
-import Payment from "./Pages/Payment/Payment"
+// import Payment from "./Pages/Payment/Payment"
 import Navbar from "./component/Navbar/Navbar"
+import Login from "./pages/auth/Login"
+import Register from "./pages/auth/Register"
+import AllRoutes from "./Routes/AllRoutes"
 
 
 function App() {
@@ -11,11 +14,14 @@ function App() {
   return (
     <div className="App">
 
-      <h1>home</h1>
-      <ProductListing />
+      {/* <h1>home</h1> */}
+      {/* <ProductListing /> */}
 
     <Navbar/>
-     <Payment/>
+   
+  
+    <AllRoutes />
+     {/* <Payment/> */}
 
     </div>
   )
