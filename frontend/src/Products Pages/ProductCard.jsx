@@ -1,17 +1,20 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 const ProductCard = ({ rating, title, desc, price, distance }) => {
   return (
-    <Box style={{ border: "1px solid yellow" }}>
+    <Box style={{ border: "1px solid yellow", padding:"5px" }}>
       <Image
         src="https://zoomcar-assets.zoomcar.com/76250/HostCarImage/host_car_image_762503a59d15b-bac5-46e9-9492-866cd74ff8af.jpg20230120-40-1wcoaxg"
-        width="100%"
+        width="95%"
         alt="car"
       />
       <Box style={{ padding: "0.75rem" }}>
         <Text>⭐ Rating :D</Text>
-        <Heading size="md">Honda Amaze</Heading>
+        <Flex style={{ alignItems: "center", justifyContent: "space-between" }}>
+          <Heading size="md">Honda Amaze</Heading>
+          <Button colorScheme='purple'>View More</Button>
+        </Flex>
         <Text style={{ opacity: "0.5" }}>Manual . Petrol . 5 seats</Text>
         <Flex
           style={{
@@ -19,7 +22,7 @@ const ProductCard = ({ rating, title, desc, price, distance }) => {
             justifyContent: "space-between",
           }}
         >
-          <Heading size="md"> 250/hr</Heading>
+          <Heading size="md">₹ 250/hr</Heading>
           <Text style={{ backgroundColor: "ghostwhite", padding: "0.2rem" }}>
             10.2 km away
           </Text>
