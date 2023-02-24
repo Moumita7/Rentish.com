@@ -1,4 +1,8 @@
 
+
+import Payment from "./Pages/Payment/Payment"
+import Profile from "./Pages/Profile/Profile"
+
 import ProductListing from "./Products Pages/ProductListing"
 
 
@@ -8,8 +12,13 @@ function App() {
 
   return (
     <div className="App">
+
+     {/* <Payment/> */}
+     <Profile/>
+
   <Navbar/>
     <AllRoutes />
+
     </div>
   )
 }

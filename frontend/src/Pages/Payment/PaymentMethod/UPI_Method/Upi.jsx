@@ -33,12 +33,11 @@ const Upi = () => {
     <input type="checkbox" className='inputcheck'/>
   </div>
   <div className='upiIDSubmmit'>
-    <input type="text" className='upiID' placeholder='Enter Upi Id
-'/>
-    <button>VERIFY & PAY</button>
+    <input type="text" className='upiID' placeholder='Enter Upi Id'/>
+    <button> PAY</button>
   </div>
     </>
   )
 }
 
-export default Upi
+export default Upi  

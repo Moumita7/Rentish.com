@@ -24,7 +24,7 @@ const MobileWallet = () => {
         <p>Securely save card details</p>
         </div>
         
-        <button style={{marginTop:"90px"}}>PAY ₹2380.0</button>
+        <button >PAY ₹2380.0</button>
     </div>
     </div>
     </>
