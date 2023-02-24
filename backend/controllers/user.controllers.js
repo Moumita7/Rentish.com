@@ -2,6 +2,59 @@ const { UserModel } = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
+const nodemailer = require("nodemailer");
+
+
+const  sendVerifyMail  = async(name,email,id) =>{
+    try{
+    const transporter =  nodemailer.createTransport({
+        host:'smtp.gmail.com',
+        post:587,
+        secure:false,
+        requireTLS:true,
+        auth:{
+            user:process.env.user,
+            pass: process.env.pass
+        }
+           })
+
+           const mailOption = {
+            from:process.env.user,
+            to: email,
+            subject:"For Verification mail.",
+            html:`
+          <div style="width:100%;">
+  
+  <div style="width:50%;margin:auto;background:transparant">
+    <img style="width:100%" src="https://img.freepik.com/free-vector/illustration-e-mail-protection-concept-e-mail-envelope-with-file-document-attach-file-system-security-approved_1150-41788.jpg?w=826&t=st=1677265163~exp=1677265763~hmac=9d9fd3fd7a894b462f3101a6de704ecf3766b1f1fb6b726a5e7142f668a0dff5"/>
+  </div>
+  <h1 style="text-align:center;">Verify your email address.</h1>
+  <div style="text-align:center; font-family:robot,'sens-serif'">
+    <p>Hi ${name}, You've entered <i>${email}</i> as the email address for your account <br> Please verify this email address by clicking button below.</p>
+  </div>
+  <div style="width:fit-content;margin:50px auto;">
+    <button style="margin:auto;padding:5px;background-color:#4d7bf8; border:none;border-radius:5px"><a style="font-weight:500;font-size:25px; background-color:#4d7bf8; color:white; text-decoration:none" href="http://localhost:4500/users/verify?id=${id}">Verify your email</a></button>
+  </div>
+  <div style="width:40%;margin:auto;">
+  <img style="width:100%" src="https://user-images.githubusercontent.com/108677306/221280075-ff9e6f31-0edb-4a5c-bda6-f05f0181d2e9.png"/>
+  </div>
+</div>
+          `
+           }
+           transporter.sendMail(mailOption,(err,info)=>{
+            if(err){
+              console.log(err)
+            }
+            else{
+              console.log("Email has been sent",info.response)
+            }
+           })
+    }catch(err){
+        console.log(err.message)
+    }
+}
+
+
 const register = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -13,8 +66,14 @@ const register = async (req, res) => {
         } else {
           try {
             const newUser = new UserModel({ ...req.body, password: hash });
-            await newUser.save();
-            res.status(201).json({ message: "New user has been added." });
+            const userData =  await newUser.save();
+            if(userData){
+              sendVerifyMail(req.body.name,req.body.email,userData._id)
+              res.status(201).json({ message: "New user has been added, Please check your email for verification." });
+            }
+            else{
+              res.status(409).json({message:"Registration failed."})
+            }
           } catch (err) {
             res
               .status(500)
@@ -165,8 +224,17 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { register, login, getAllUser, getSingleUser, updateUser,deleteUser };
 
-// function parseJwt (token) {
-//     return JSON.parse(Buffer.from(token.split('.')[1], 'base64').toString());
-// }
+const verifyMail = async(req,res) =>{
+ const updateInfo =  await UserModel.findByIdAndUpdate(req.query.id,{isVerify:true});
+  res.setHeader("content-type", "text/html")
+  res.send(`  <div style="width:100%;height:100vh;display:flex;align-items:center;justify-content:center">
+  <div style="overflow:hidden;background-color:#e7e5e7;border-radius:10px;width:50%;margin:auto;position:relative">
+    <div style="width:100%"><img style="width:100%" src="https://cdn.dribbble.com/users/2498377/screenshots/7107737/ezgif.com-resize.gif"/>
+    <div style="display:grid;place-items:center;width:100%;font-size:20px;left:0;position:absolute;bottom:10%;background-color:#e7e5e7;padding:10px 0"><button style="border:none;background-color:#e7e5e7;height:2%;font-weight:600"><a href="#">Login</a></button></div>
+    </div>
+  </div>
+</div>`);
+}
+
+module.exports = { register, login, getAllUser, getSingleUser, updateUser,deleteUser,verifyMail };
