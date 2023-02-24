@@ -22,10 +22,11 @@ const getAllCars = async(req,res)=>{
         city:req.loggedUser.city
     };
     let doSort = {};
+    let car_title = "";
 
     for(let key in queries){
-        if(key==="search"){
-            obj["car_title"]=queries[key];
+        if(key==="q"){
+            car_title=queries[key];
         }
         else if(key==="seats"){
             obj["seats"]=+queries[key]
@@ -69,7 +70,7 @@ const getAllCars = async(req,res)=>{
 
     }
     try{
-        const carsData = await CarModel.find(obj).sort(doSort)
+        const carsData = await CarModel.find({$and:[{car_title:{$regex:car_title,$options:"i"}},obj]}).sort(doSort)
         res.status(200).json({message:"Success",data:carsData})
     }catch(err){
         res.status(500).json({message:"Server error",error:err.message})
