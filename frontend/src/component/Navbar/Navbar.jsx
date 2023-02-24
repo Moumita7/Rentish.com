@@ -1,5 +1,6 @@
 // import React from 'react'
 import React, { useContext, useEffect, useState } from 'react'
+import { useSelector } from "react-redux";
 // import { authContext } from '../../routs/AuthContext';
 import {
   Box, Text, Flex, Button, Drawer, DrawerOverlay, DrawerContent, DrawerBody, useDisclosure, ButtonGroup,Image
@@ -10,9 +11,15 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const handlelogout=()=>{
+  const tok = useSelector((store) => store?.AuthReducer?.token);
+  const token = localStorage.getItem("token") || tok;
 
-  }
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    navigate("/");
+  };
+
 
   return (
     <>
@@ -27,10 +34,14 @@ const Navbar = () => {
       <Button borderRadius={"50px"} gap="4"><Image w={"8"}  src={"https://user-images.githubusercontent.com/97180521/220669627-a30e600e-5ba1-4156-b85e-69b7a9d18c2c.png"}/> Become a host</Button>
 
       <div className='navv-linkss' id="navv-link">
-     
-          <Link to='/userdashboard'> <button className='admin-button'>USER</button></Link>
+      {/* {!token &&  <Link to='/login'><button className='login-button' >user</button></Link>} */}
+       {
+        token?
+         
+          <button onClick={handleLogout} className='login-button'>logout</button>:
+          <Link to='/login'><button className='login-button' >Login</button></Link>
+       }
 
-          <Link to='/login'><button className='login-button' onClick={handlelogout}>Login</button></Link>
       </div>
 
       <div className='hum'>
