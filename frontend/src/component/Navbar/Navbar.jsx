@@ -13,10 +13,14 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const tok = useSelector((store) => store?.AuthReducer?.token);
   const token = localStorage.getItem("token") || tok;
+  const isAdmin=localStorage.getItem("isAdmin")
+  console.log(isAdmin)
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
+    localStorage.removeItem("isAdmin");
+
     navigate("/");
   };
 
@@ -34,10 +38,9 @@ const Navbar = () => {
       <Button borderRadius={"50px"} gap="4"><Image w={"8"}  src={"https://user-images.githubusercontent.com/97180521/220669627-a30e600e-5ba1-4156-b85e-69b7a9d18c2c.png"}/> Become a host</Button>
 
       <div className='navv-linkss' id="navv-link">
-      {/* {!token &&  <Link to='/login'><button className='login-button' >user</button></Link>} */}
+      {isAdmin==="true"? <button className='login-button'>admin</button>:null}
        {
         token?
-         
           <button onClick={handleLogout} className='login-button'>logout</button>:
           <Link to='/login'><button className='login-button' >Login</button></Link>
        }
