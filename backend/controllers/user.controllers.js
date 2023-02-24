@@ -36,7 +36,7 @@ const  sendVerifyMail  = async(name,email,id) =>{
     <button style="margin:auto;padding:5px;background-color:#4d7bf8; border:none;border-radius:5px"><a style="font-weight:500;font-size:25px; background-color:#4d7bf8; color:white; text-decoration:none" href="http://localhost:4500/users/verify?id=${id}">Verify your email</a></button>
   </div>
   <div style="width:40%;margin:auto;">
-  <img style="width:100%" src="https://user-images.githubusercontent.com/108677306/221280075-ff9e6f31-0edb-4a5c-bda6-f05f0181d2e9.png"/>
+  <img style="width:100%" src="https://user-images.githubusercontent.com/108677306/221299515-121afc72-6997-4a4d-8588-0a5e5bad2469.png"/>
   </div>
 </div>
           `
