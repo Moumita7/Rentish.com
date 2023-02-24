@@ -48,6 +48,10 @@ const userSchema = mongoose.Schema(
         maxLength:10,
         require:false,
         default:1
+    },
+    isVerify:{
+        type:Boolean,
+        default:false
     }
   },
 
