@@ -13,19 +13,19 @@ export const reducer = (state = initialState, action) => {
     switch (type) {
         case types.GET_USER_REQUEST: {
             return {
-                ...state, isLoading: true,
+                ...state, isAuthLoading: true,
             }
         }
         case types.GET_USER_SUCCESS: {
             SetLocal('isAuth', true)
             return {
-                ...state, isLoading: false, token: payload, isAuth: true
+                ...state, isAuthLoading: false, token: payload, isAuth: true
             }
         }
         case types.GET_USER_FAILURE: {
             SetLocal('isAuth', false)
             return {
-                ...state, isLoading: false, isError: true, token: '', isAuth: false
+                ...state, isAuthLoading: false, isError: true, token: '', isAuth: false
             }
         }
         default: return state
