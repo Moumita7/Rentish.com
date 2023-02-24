@@ -1,24 +1,23 @@
 
-import ProductListing from "./ProductListing"
-
-
 import Payment from "./Pages/Payment/Payment"
+import Profile from "./Pages/Profile/Profile"
+
+import ProductListing from "./Products Pages/ProductListing"
+
+
 import Navbar from "./component/Navbar/Navbar"
-
-
+import AllRoutes from "./Routes/AllRoutes"
 function App() {
 
   return (
     <div className="App">
 
-      <h1>home</h1>
-      <ProductListing />
+     {/* <Payment/> */}
+     <Profile/>
 
-    <Navbar/>
-     <Payment/>
+  <Navbar/>
+    <AllRoutes />
 
     </div>
   )
 }
-
-export default App
