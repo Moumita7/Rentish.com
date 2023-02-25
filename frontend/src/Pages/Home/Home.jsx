@@ -1,9 +1,35 @@
-import React from 'react';
-import { Box ,Image,Heading, SimpleGrid} from '@chakra-ui/react';
+import React, { useState } from 'react';
+import { Box ,Image,Heading, SimpleGrid, Input, Select, Button, useToast} from '@chakra-ui/react';
 import { Carousel } from './Carousel';
 import HomepageTabs from "./HomepageTabs";
+import {postCity} from "../../redux/HomeReducer/action";
+import {useDispatch} from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+const [city, setCity] = useState(""); 
+const dispatch  = useDispatch();
+const nav = useNavigate();
+const toast = useToast()
+
+const handleCity = ()=>{
+  if(city==""){
+    toast({
+      title: 'Select City First',
+      status: 'error',
+      duration: 2000,
+      isClosable: true,
+    })
+  }
+  else{
+    console.log(city)
+    dispatch(postCity(city))
+    nav("/location")
+  }
+  
+}
+
+
   return (
     <div>
         <Box>
@@ -13,6 +39,20 @@ const Home = () => {
                     <Heading style={{color:"white",fontSize:"43px", textAlign:"center"}} >The perfect car for your next trip is just around the corner  </Heading>
                     <Heading style={{color:"white",fontSize:"30px", textAlign:"center",marginTop:"25px"}} > Book your drive now! </Heading>
                 </Box>
+
+                <Box style={{  width:"35%", margin:"auto", marginTop:"200px"}}>
+                <Box style={{ border:"1px solid white", width:"100%",borderRadius:'25px',backgroundColor:"white"}}> 
+                  <Select placeholder='Select City' variant='outline' borderRadius='25px'size='lg' value={city} onChange={(e)=>setCity(e.target.value)} >
+                    <option value='chandigarh'>Chandigarh</option>
+                    <option value='mumbai'>Mumbai</option>
+                    <option value='delhi'>Delhi</option>
+                  </Select>
+                   </Box>
+                   <Button style={{margin:'auto',width:'100%',backgroundColor:"#10a310" 
+                   ,color:'white',marginTop:"20px",borderRadius:'25px'}}  onClick={handleCity}
+                   >Find Cars</Button>
+                </Box>
+                
              </Box>
 {/*---------------------------------------------    First Slider  --------------------------------------------------*/}
             <Heading style={{ textAlign:"center", marginTop:"50px"}} >CHOOSE FROM OUR WIDE RANGE OF CARS </Heading>

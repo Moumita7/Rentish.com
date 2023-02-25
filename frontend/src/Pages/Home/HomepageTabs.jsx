@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Box, Heading } from '@chakra-ui/react'
 
@@ -14,8 +15,8 @@ const HomepageTabs = () => {
 
   <TabPanels>
   <TabPanel>
-    {data.map((el)=>(
-        <Box>
+    {data.map((el,i)=>(
+        <Box key={i} >
             <Heading fontSize={'20px'} marginBottom="20px" mt='20px' >{el.ques}</Heading>
             <Heading fontSize={'16px'} marginBottom="25px" lineHeight={'25px'} fontWeight='medium' >{el.ans}</Heading>
         </Box>
@@ -86,4 +87,3 @@ const data = [
 }
 
 ]
-
