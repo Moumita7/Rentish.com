@@ -1,7 +1,7 @@
 .booking_box{
     width: 100%;
     /* border: 2px solid brown; */
-    
+    padding: 15px;
 }
 .heading{
     width: 100%;
@@ -9,7 +9,15 @@
     text-transform: uppercase;
     font-size: 26px;
     border-bottom: solid 1px #e0e0e0;
+    padding: 10px 0;
     
     margin: 0;
     letter-spacing: 2px;
+}
+.bookedcar_container{
+    width: 95%;
+    height: auto;
+    margin: auto;
+    margin-top: 20px;
+    /* border: 1px solid red; */
 }

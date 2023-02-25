@@ -1,6 +1,7 @@
 .account_box{
     width: 100%;
-    /* border: 2px solid brown; */
+  
+    padding: 15px;
     
 }
 .heading{
@@ -9,6 +10,7 @@
     text-transform: uppercase;
     font-size: 26px;
     border-bottom: solid 1px #e0e0e0;
+    padding: 10px 0;
     
     margin: 0;
     letter-spacing: 2px;
@@ -16,13 +18,15 @@
 .account_detail,.personal_detail,.loaction_detail{
     width: 85%;
     margin: auto ;
-    padding: 10px;
-    /* border: 2px solid brown; */
+    padding: 20px 10px;
+
 }
 .head{
     text-align: left;
-    border-bottom: 1px solid black;
-    font-size: 20px;
+    border-bottom: 1px solid brown;
+    font-size: 22px;
+    padding: 4px 0;
+    color: brown;
 }
 .input_ele{
     width: 60%;
@@ -31,19 +35,28 @@
     align-items: center;
     margin-left: 3%;
     margin-top: 10px;
+    /* border: 3px solid brown; */
+
 }
 .input_ele p{
     font-size: 17px;    
 }
-.input_ele input{
+.input_ele>input{
     font-size: 18px;
+    
     width: 300px;  
-    height: 30px; 
+    height: 40px; 
     padding-left: 15px; 
+    border: 1px solid black;
+   
+       
 }
 .input_ele select{
     width: 320px;
     height: 40px;
+    border: 1px solid black;
+    margin-left: 16%;
+
 }
 .update_btn_box{
     width: 150px;

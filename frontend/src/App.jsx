@@ -1,5 +1,7 @@
 
+import BookedCar from "./Component/BookedCar/BookedCar"
 import Navbar from "./component/Navbar/Navbar"
+import Profile from "./Pages/Profile/Profile"
 import AllRoutes from "./Routes/AllRoutes"
 function App() {
 
@@ -7,6 +9,7 @@ function App() {
     <div className="App">
     <Navbar/>
     <AllRoutes />
+    
 
     </div>
   )

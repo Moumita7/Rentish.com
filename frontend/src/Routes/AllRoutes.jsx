@@ -8,14 +8,14 @@ import Location from "../Pages/Home/Location";
 // import Admin from "../Pages/Admin/Admin";
 // import Home from "../Pages/Home/Home";
 import Payment from "../pages/Payment/Payment";
-// import Profile from "../Pages/Profile/Profile";
+import Profile from "../Pages/Profile/Profile";
 
 export default function AllRoutes() {
   return (
     <div>
       <Routes>
        <Route  path="/"  element={<Home/>} />
-            <Route  path="/location"  element={<Location/>} />
+        <Route  path="/location"  element={<Location/>} />
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route
           path="/payment"
@@ -26,10 +26,10 @@ export default function AllRoutes() {
         {/* <Route path="/admin" element={<Admin />} /> */}
         <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route
+        <Route
           path="/profile"
-          element={<PrivateRoutes> {<Profile />}</PrivateRoutes>}
-        /> */}
+          element={ <Profile/>}
+        />
         <Route path="/*" element={<> 404 Not Found... </>} />
       </Routes>
     </div>
