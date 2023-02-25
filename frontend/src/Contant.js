@@ -1,1 +1,1 @@
-export const cities=['Mumbai', 'Delhi', 'Bangalore', 'Kolkata', 'Chennai', 'Hyderabad',"Goa","Lucknow","Nagpur","Pune","Ahmdabad",]
+export const cities=['Mumbai', 'Delhi', 'Bangalore', 'Kolkata', 'Chennai', 'Hyderabad',"Goa","Lucknow","Nagpur","Pune","Ahmdabad","Patna"]
