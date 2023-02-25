@@ -7,6 +7,7 @@ import Location from "../Pages/Home/Location";
 // import Admin from "../Pages/Admin/Admin";
 // import Home from "../Pages/Home/Home";
 import Payment from "../pages/Payment/Payment";
+import Profile from "../pages/Profile/Profile";
 import ProductDetails from "../ProductDetails Page/ProductDetails";
 import ProductListing from "../ProductsListing Page/ProductListing";
 // import Profile from "../Pages/Profile/Profile";
@@ -29,6 +30,8 @@ export default function AllRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<ProductListing />} />
         <Route path="/products/details" element={<ProductDetails />} />
+        <Route path="/profile" element={<Profile />} />
+
         {/* <Route
           path="/profile"
           element={<PrivateRoutes> {<Profile />}</PrivateRoutes>}
