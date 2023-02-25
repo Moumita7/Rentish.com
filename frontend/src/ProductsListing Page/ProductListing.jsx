@@ -32,7 +32,7 @@ const ProductListing = () => {
       </Show>
       <Box className="prod-flex-right" style={prod_flex_right}>
         <Grid
-          templateColumns={["repeat(1,1fr)", "repeat(2,1fr)"]}
+          templateColumns={["repeat(1,1fr)", "repeat(2,1fr)","repeat(3,1fr)"]}
           style={{ width: "100%", gap: "20px" }}
         >
           <ProductCard />
