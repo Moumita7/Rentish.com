@@ -8,11 +8,17 @@ import Calender from "../pages/Home/Calender"
 // import Admin from "../Pages/Admin/Admin";
 // import Home from "../Pages/Home/Home";
 import Payment from "../pages/Payment/Payment";
-import Profile from "../pages/Profile/Profile";
+
+import Profile from "../Pages/Profile/Profile";
+
 import ProductDetails from "../ProductDetails Page/ProductDetails";
 import ProductListing from "../ProductsListing Page/ProductListing";
+<<<<<<< HEAD
 import Result from "../pages/Home/Result";
 // import Profile from "../Pages/Profile/Profile";
+=======
+
+>>>>>>> 1ffd7d25e446f968688d7e3264701f83be262caf
 
 
 export default function AllRoutes() {
@@ -21,6 +27,9 @@ export default function AllRoutes() {
       <Routes>
 
        <Route  path="/"  element={<Home/>} />
+
+        <Route  path="/location"  element={<Location/>} />
+
             <Route  path="/location"  element={<Location/>} />
             <Route  path="/calender"  element={<Calender/>} />
             
@@ -38,6 +47,9 @@ export default function AllRoutes() {
         {/* <Route path="/admin" element={<Admin />} /> */}
         <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
+        <Route
+
         <Route path="/products" element={<ProductListing />} />
         <Route path="/products/details" element={<ProductDetails />} />
         <Route path="/profile" element={<Profile />} />
@@ -45,9 +57,10 @@ export default function AllRoutes() {
 
 
         {/* <Route
+
           path="/profile"
-          element={<PrivateRoutes> {<Profile />}</PrivateRoutes>}
-        /> */}
+          element={ <Profile/>}
+        />
         <Route path="/*" element={<> 404 Not Found... </>} />
       </Routes>
     </div>
