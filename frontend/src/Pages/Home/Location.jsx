@@ -1,14 +1,52 @@
-import React, { useState } from 'react'
-import { Box, Button, Heading, Divider, Input  } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react'
+import { Box, Button, Heading, Divider, Input, useToast  } from '@chakra-ui/react';
 import {GrLocation, GrMapLocation} from "react-icons/gr"
 import {TbCurrentLocation} from "react-icons/tb"
+import { useNavigate } from 'react-router-dom';
+import {useSelector,useDispatch} from "react-redux";
+import {postLocation} from "../../redux/HomeReducer/action";
 
 const Location = () => {
+const city = useSelector((store)=>store.home.city)
+const [data1, setData1] = useState([]);
+const [data2, setData2] = useState([]);
+const [location, setLocation] = useState("");
+const toast = useToast()
+const nav = useNavigate();
+const dispatch  = useDispatch();
 
-const [location, setLocation] = useState(data1[0]);
+useEffect(()=>{
+ if(city==="chandigarh"){
+  setData1(chd1);    setData2(chd2)
+ }
+ else if(city==="mumbai"){
+  setData1(mumbai1);    setData2(mumbai2)
+ }
+ else if(city==="delhi"){
+  setData1(delhi1);    setData2(delhi2)
+ }
+
+},[])
+
 
 const handleLocation = (el)=>{
    setLocation(el)
+};
+
+const handleClick = ()=>{
+  if(location==""){
+    toast({
+      title: 'Select Location First',
+      status: 'error',
+      duration: 2000,
+      isClosable: true,
+    })
+  }
+  else{
+    console.log(location);
+    dispatch(postLocation(location))
+    nav("/calender") 
+  }
 }
 
 
@@ -16,7 +54,7 @@ const handleLocation = (el)=>{
     <div>
         <Box style={{width:'65%', margin:'auto', marginTop:"80px",padding:"30px 0px",boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'}} >
           <Box style={{display:"flex",justifyContent:'space-evenly',alignItems:'center'}} >
-            <Box width="40%" ><Input type="text" placeholder="Enter location" value={location}  /></Box>
+            <Box width="40%" ><Input type="text" placeholder="Enter location" value={location} readOnly /></Box>
             <Box style={{display:"flex", alignItems:"center"}} ><TbCurrentLocation fontSize='30px' /> Current Location</Box>
             <Box style={{display:"flex", alignItems:"center"}}><GrMapLocation fontSize='30px' />Select Location on Map</Box>
           </Box>
@@ -25,8 +63,8 @@ const handleLocation = (el)=>{
 
             <Box  >
               <Box>RECENTLY SEARCHED LOCATIONS</Box>
-              {data1.map((el)=>(
-                <Box style={{height:"70px",
+              {data1.map((el,i)=>(
+                <Box  key={i} style={{height:"70px",
                 display:"flex",borderRadius:"8px",
                  alignItems:"center",marginBottom:"6px",backgroundColor:'white',padding:"0px 8px",
                  marginTop:"6px", boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px'}}  
@@ -37,8 +75,8 @@ const handleLocation = (el)=>{
 
             <Box >
             <Box>SUGGESTED PICK UP LOCATIONS</Box>
-            {data2.map((el)=>(
-                <Box style={{height:"70px",boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',padding:"0px 8px",
+            {data2.map((el,i)=>(
+                <Box  key={i} style={{height:"70px",boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',padding:"0px 8px",
                 display:"flex", alignItems:"center",marginBottom:"6px",backgroundColor:'white',
                 marginTop:"6px",borderRadius:"8px"}} 
                 onClick={()=>handleLocation(el)} >
@@ -47,8 +85,8 @@ const handleLocation = (el)=>{
             </Box>
 
           </Box >
-          <Box width="100%" margin='auto'>
-          <Button style={{backgroundColor:"#10a310" ,color:'white',border:"1px solid brown", margin:'auto'   }} >CONFIRM PICKUP LOCATION</Button>
+          <Box width="30%" margin='auto' marginTop='20px' >
+          <Button style={{backgroundColor:"#10a310" ,color:'white' }} onClick={handleClick} >CONFIRM PICKUP LOCATION</Button>
           </Box>
            
         </Box>
@@ -59,9 +97,23 @@ const handleLocation = (el)=>{
 export default Location
 
 
-const data1 = ["Chandigarh International Airport", "Chandigarh bus stand"]
+const chd1 = ["Chandigarh International Airport", "Chandigarh bus stand"]
 
-const data2 = [
+const chd2 = [
   "Chandigarh International Airport","Chandigarh Railway Station", 'Chandiagrh, India', 'Chandiagrh bus stand',
   'Chandigarh University', 'Zirakpur Bus Stand'
+]
+
+const delhi1 = ["Delhi International Airport", "Delhi bus stand"]
+
+const delhi2 = [
+  "Delhi International Airport","Delhi Railway Station", 'Delhi, India', 'Delhi bus stand',
+  'Delhi University'
+]
+
+const mumbai1 = ["Mumbai International Airport", "Mumbai bus stand"]
+
+const mumbai2 = [
+  "Mumbai International Airport","Mumbai Railway Station", 'Mumbai, India', 'Mumbai bus stand',
+  'Mumbai University'
 ]
