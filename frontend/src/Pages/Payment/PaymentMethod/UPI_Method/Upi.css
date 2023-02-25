@@ -39,8 +39,10 @@
 }
 .upiIDSubmmit{
     width: 100%;
-    height: 69px;
-    margin-top: 10px;
+    height: auto;
+    margin: 5   px 5px;
+    
+
     /* border: 1px solid red; */
 }
 .upiID{
@@ -52,14 +54,93 @@
     
 }
 .upiIDSubmmit input[type="text"]{
+    width: 50%;
     font-size: 17px;
     padding-left: 20px;
     margin-left: 10px;
-    
+    /* border: 2px solid brown ; */
+    margin-top: 10px;
     
 }
 .upiIDSubmmit button{
-    width: 120px;
+    width: 30%;
+    /* border: 2px solid brown ; */
+    font-size: 15px;
     height: 55px;
     margin-left: 10px;
+    margin-top: -10px;
 }
+@media (max-width: 1100px){
+ 
+  
+  
+    
+  }
+  
+  
+  @media (max-width: 968px) {
+    /* CSS rules for devices with a screen width of 968px or less */
+   
+    
+    
+  }
+  
+  
+  @media (max-width: 768px){
+    .upiIDSubmmit{
+        margin: auto;
+        padding-left: 1%;
+    }
+    .upiIDSubmmit{
+        height: auto;
+        margin: 10px 0;
+        
+    }
+    .upiIDSubmmit input[type="text"]{
+        display: block;
+        width: 80%; 
+    }
+    .upiIDSubmmit button{
+        width: 90%;
+        margin-top: 10px;
+    }
+   
+  }
+  @media (max-width: 568px){
+    .upiIDSubmmit{
+        height: auto;
+        margin: 10px 0;
+        
+    }
+    .upiIDSubmmit input[type="text"]{
+        display: block;
+        width: 80%; 
+    }
+    .upiIDSubmmit button{
+        width: 90%;
+        margin-top: 10px;
+    }
+  }
+  @media (max-width: 468px){
+   .upi_heading{
+    height: auto;
+   }
+    .upi_content_head{
+        font-size: 16px;
+        font-weight: 500;
+       
+    }
+    .upiIDSubmmit{
+        height: auto;
+        margin: 10px 0;
+        
+    }
+    .upiIDSubmmit input[type="text"]{
+        display: block;
+        width: 80%; 
+    }
+    .upiIDSubmmit button{
+        width: 90%;
+        margin-top: 10px;
+    }
+  }

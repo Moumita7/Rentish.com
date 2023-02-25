@@ -17,15 +17,57 @@ import {
   // Link,
   Select,
   Image,
+  useToast,
+  useDisclosure,
   InputLeftElement
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ViewIcon, ViewOffIcon,PhoneIcon } from '@chakra-ui/icons';
+import { useDispatch } from "react-redux";
+import { LoginUser } from "../../redux/AuthReducer/action";
+import { useNavigate } from "react-router-dom";
+// import { useSelector } from "react-redux";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const toast = useToast();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  //
+
+  // const tok = useSelector((store) => store?.AuthReducer?.token);
+  // const token = localStorage.getItem("token") || tok;
+  // console.log(token)
+  // // const navigate = useNavigate();
+  // // const token = localStorage.getItem("token");
+  // const handleLogout = () => {
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("userId");
+  //   navigate("/");
+  // };
+
+  const hanldeLogin = () => {
+    const payload = {
+      email,
+      password,
+    };
+    dispatch(LoginUser(payload, toast, navigate)).then(() => {
+      onClose();
+    });
+  };
+
+
+
+
+
   return (
+    <>
+     {/* {!token && <Login />} */}
     <Flex
       >
       <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={3}>
@@ -53,12 +95,18 @@ const Login = () => {
               </Box>    
             <FormControl id="email" isRequired>
               <FormLabel color={"#00BE2D"}>Email address</FormLabel>
-              <Input type="email"  />
+              <Input type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)} />
             </FormControl>
             <FormControl id="password" isRequired>
               <FormLabel color={"#00BE2D"}  >Password</FormLabel>
               <InputGroup>
-                <Input type={showPassword ? 'text' : 'password'} />
+                <Input type={showPassword ? 'text' : 'password'} 
+                   value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
                 <InputRightElement h={'full'}>
                   <Button
                     variant={'ghost'}
@@ -81,6 +129,14 @@ const Login = () => {
               <Input placeholder='Enter Mobile Number'/>
             </InputGroup>
             <Stack spacing={10} pt={2}>
+            {/* {token ? 
+              <Button
+          
+                size="lg"
+                bg={' #00BE2D'}
+                color={'white'}
+                
+               onClick={handleLogout}>Sign out</Button>: */}
               <Button
                 loadingText="Submitting"
                 size="lg"
@@ -88,9 +144,13 @@ const Login = () => {
                 color={'white'}
                 _hover={{
                   bg: '#00BE2D',
-                }}>
+                }}
+                onClick={hanldeLogin}
+                >
                 Login
               </Button>
+           //
+              {/* }  */}
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
@@ -101,6 +161,7 @@ const Login = () => {
         </Box>
       </Stack>
     </Flex>
+    </>
   )
 }
 

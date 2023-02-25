@@ -74,7 +74,7 @@ const Payment = () => {
     <>
         <div className='payment_main_box'>
             
-              <div className=''>
+              <div className='payment_method_box'>
                
                  <div className='payment_heading'>
                      <p>Select a Payment method</p>

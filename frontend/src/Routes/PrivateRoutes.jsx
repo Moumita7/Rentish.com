@@ -7,9 +7,9 @@ import { GetLocal } from "../Utils/localstorage";
 export default function PrivateRoutes({ children }) {
   const location = useLocation();
   const isAuth = useSelector((store) => store.AuthReducer.isAuth);
-  // const Token = GetLocal("auth") || false;
+  const Token = GetLocal("auth") || false;
  
-  if (!isAuth) {
+  if (!Token) {
     return <Navigate to="/login" state={location.pathname} replace />;
   }
   return <Center> { children}</Center>;
