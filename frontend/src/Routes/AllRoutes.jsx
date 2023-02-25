@@ -2,15 +2,16 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "../pages/auth/Login";
 import Register from "../pages/auth/Register";
-import Home from "../Pages/Home/Home";
-import Location from "../Pages/Home/Location";
-import Calender from "../Pages/Home/Calender"
+import Home from "../pages/Home/Home";
+import Location from "../pages/Home/Location";
+import Calender from "../pages/Home/Calender"
 // import Admin from "../Pages/Admin/Admin";
 // import Home from "../Pages/Home/Home";
 import Payment from "../pages/Payment/Payment";
 import Profile from "../pages/Profile/Profile";
 import ProductDetails from "../ProductDetails Page/ProductDetails";
 import ProductListing from "../ProductsListing Page/ProductListing";
+import Result from "../pages/Home/Result";
 // import Profile from "../Pages/Profile/Profile";
 
 
@@ -40,6 +41,8 @@ export default function AllRoutes() {
         <Route path="/products" element={<ProductListing />} />
         <Route path="/products/details" element={<ProductDetails />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/result" element={<Result />} />
+
 
         {/* <Route
           path="/profile"
