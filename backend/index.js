@@ -3,6 +3,7 @@ const { rentishDB } = require("./config/db");
 const { userRouter } = require("./routes/user.routes");
 const { carRouter } = require("./routes/car.routes");
 const { CarModel } = require("./models/car.model");
+const { bookingRouter } = require("./routes/booking.routes");
 require("dotenv").config();
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 // })
 app.use("/users",userRouter);
 app.use("/cars",carRouter);
+app.use("/booking",bookingRouter)
 
 
 app.get("*",(req,res)=>{
