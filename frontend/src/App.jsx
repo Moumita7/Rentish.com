@@ -1,4 +1,5 @@
 
+
 import Payment from "./Pages/Payment/Payment"
 import Profile from "./Pages/Profile/Profile"
 
@@ -8,12 +9,16 @@ import ProductListing from "./Products Pages/ProductListing"
 import ProductListing from "./ProductsListing Page/ProductListing";
 
 
+
 import Navbar from "./component/Navbar/Navbar";
 import AllRoutes from "./Routes/AllRoutes";
 
 
+
+
 import Navbar from "./component/Navbar/Navbar"
 import AllRoutes from "./Routes/AllRoutes"
+
 
 function App() {
   return (
@@ -22,8 +27,7 @@ function App() {
       <Navbar />
       <AllRoutes />
 
-    <Navbar/>
-    <AllRoutes />
+  
 
 
     </div>

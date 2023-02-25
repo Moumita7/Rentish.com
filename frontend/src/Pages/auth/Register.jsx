@@ -69,6 +69,7 @@ const Register = () => {
   const hanldeSignUp = () => {
     dispatch(signUp(state, toast, navigate)).then(() => {
       onClose();
+      localStorage.setItem("userName",state.name)
     });
   };
 

@@ -14,12 +14,14 @@ const Navbar = () => {
   const tok = useSelector((store) => store?.AuthReducer?.token);
   const token = localStorage.getItem("token") || tok;
   const isAdmin=localStorage.getItem("isAdmin")
+  const userName=localStorage.getItem("userName")
   console.log(isAdmin)
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("isAdmin");
+    localStorage.removeItem("userName");
 
     navigate("/");
   };
@@ -41,9 +43,12 @@ const Navbar = () => {
       {isAdmin==="true"? <button className='login-button'>admin</button>:null}
        {
         token?
-          <button onClick={handleLogout} className='login-button'>logout</button>:
+        <Link to="/profile"> <Text color={"white"}>{userName}</Text></Link> 
+          :
           <Link to='/login'><button className='login-button' >Login</button></Link>
+     
        }
+            {/* <button onClick={handleLogout} className='login-button'>logout</button> */}
 
       </div>
 
