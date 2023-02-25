@@ -32,15 +32,17 @@
 }
 
 .cardsubmmit {
+    /* border: 1px solid red; */
     padding:    0px 0px;
 }
 .cardsubmmit button{
-  width: 360px;
+  width: 90%;
   height: 55px;
   font-size: 20px;
   background-color: rgb(155, 231, 231);
   border: none;
   border-radius: 15px;
+  margin: auto;
   margin-left: 10px;
 }
 .check{
@@ -48,7 +50,11 @@
     flex-direction: row;
     padding-left: 10px;
 }
+/* .cardNumber_div{
+    border: 1px solid red;
+} */
  .cardNumber_div input[type="number"]{
+    width:85%;
     font-size: 17px;
     padding-left: 20px;
     
@@ -59,9 +65,52 @@
     
 }
 .cardD input[type="number"]{
+    width: 40%;
     font-size: 18px;
-    padding-left: 10px;
+    padding-left: 7px;
 }
 .cardD input::placeholder{
     font-size: 14px;
+    padding-left: 3px;
+}
+
+@media (max-width: 1100px){
+ 
+  
+  
+    
+}
+
+
+@media (max-width: 968px) {
+  /* CSS rules for devices with a screen width of 968px or less */
+ 
+  
+  
+}
+
+
+@media (max-width: 768px){
+ 
+}
+@media (min-width: 568px){
+  
+}
+@media (max-width: 468px){
+    .cardNumber_div input[type="number"]{
+        width:70%;
+        font-size: 15px;
+        padding-left: 20px;
+        
+        
+    }
+    .cardD input[type="number"]{
+        width:50%;
+        font-size: 15px;
+        padding-left: 3px;
+       
+    }
+    .cardD input::placeholder{
+        font-size: 12px;
+    }
 }

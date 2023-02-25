@@ -15,9 +15,62 @@ const postCar = async(req,res) =>{
 
 
 //! GETTING ALL THE CARS
+
 const getAllCars = async(req,res)=>{
+    const queries = req.query
+    let obj = {
+        city:req.loggedUser.city
+    };
+    let doSort = {};
+    let car_title = "";
+
+    for(let key in queries){
+        if(key==="q"){
+            car_title=queries[key];
+        }
+        else if(key==="seats"){
+            obj["seats"]=+queries[key]
+        }
+        else if(key==="fuel_type"){
+            obj["fuel_type"]=queries[key];
+        }
+        else if(key==="transmission"){
+            obj["transmission"]=queries[key];
+        }
+        else if(key==="rating"){
+            obj["rating"]=queries[key];
+        }
+        else if(key==="city"){
+            obj["city"]=queries[key]
+        }
+        else if(key==="per_hour_charge"){
+            if(queries[key]=="asc"){
+                doSort["per_hour_charge"]=1
+            }
+            else{
+                doSort["per_hour_charge"]= -1
+            }
+        }
+        else if(key==="best_rated"){
+            if(queries[key]=="asc"){
+                doSort["rating"]=1
+            }
+            else{
+                doSort["rating"]=-1
+            }
+        }
+        else if(key==="popularity"){
+            if(queries[key]=="asc"){
+                doSort["total_rating"]=1
+            }
+            else{
+                doSort["total_rating"]=-1
+            }
+        }
+
+    }
     try{
-        const carsData = await CarModel.find({city:req.loggedUser.city})
+        const carsData = await CarModel.find({$and:[{car_title:{$regex:car_title,$options:"i"}},obj]}).sort(doSort)
         res.status(200).json({message:"Success",data:carsData})
     }catch(err){
         res.status(500).json({message:"Server error",error:err.message})
@@ -53,7 +106,6 @@ const updateCarDetails = async(req,res) =>{
         }
     }catch(err){
         res.status(500).json({message:"Server error",error:err.message})
-
     }
 }
 

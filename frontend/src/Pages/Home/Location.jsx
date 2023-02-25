@@ -1,20 +1,52 @@
-import React, { useState } from 'react'
-import { Box, Button, Heading, Divider, Input  } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react'
+import { Box, Button, Heading, Divider, Input, useToast  } from '@chakra-ui/react';
 import {GrLocation, GrMapLocation} from "react-icons/gr"
 import {TbCurrentLocation} from "react-icons/tb"
 import { useNavigate } from 'react-router-dom';
+import {useSelector,useDispatch} from "react-redux";
+import {postLocation} from "../../redux/HomeReducer/action";
 
 const Location = () => {
-
-const [location, setLocation] = useState(data1[0]);
+const city = useSelector((store)=>store.home.city)
+const [data1, setData1] = useState([]);
+const [data2, setData2] = useState([]);
+const [location, setLocation] = useState("");
+const toast = useToast()
 const nav = useNavigate();
+const dispatch  = useDispatch();
+
+useEffect(()=>{
+ if(city==="chandigarh"){
+  setData1(chd1);    setData2(chd2)
+ }
+ else if(city==="mumbai"){
+  setData1(mumbai1);    setData2(mumbai2)
+ }
+ else if(city==="delhi"){
+  setData1(delhi1);    setData2(delhi2)
+ }
+
+},[])
+
+
 const handleLocation = (el)=>{
    setLocation(el)
 };
 
 const handleClick = ()=>{
-  console.log(location);
-  nav("/calender")
+  if(location==""){
+    toast({
+      title: 'Select Location First',
+      status: 'error',
+      duration: 2000,
+      isClosable: true,
+    })
+  }
+  else{
+    console.log(location);
+    dispatch(postLocation(location))
+    nav("/calender") 
+  }
 }
 
 
@@ -22,7 +54,7 @@ const handleClick = ()=>{
     <div>
         <Box style={{width:'65%', margin:'auto', marginTop:"80px",padding:"30px 0px",boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'}} >
           <Box style={{display:"flex",justifyContent:'space-evenly',alignItems:'center'}} >
-            <Box width="40%" ><Input type="text" placeholder="Enter location" value={location}  /></Box>
+            <Box width="40%" ><Input type="text" placeholder="Enter location" value={location} readOnly /></Box>
             <Box style={{display:"flex", alignItems:"center"}} ><TbCurrentLocation fontSize='30px' /> Current Location</Box>
             <Box style={{display:"flex", alignItems:"center"}}><GrMapLocation fontSize='30px' />Select Location on Map</Box>
           </Box>
@@ -65,9 +97,23 @@ const handleClick = ()=>{
 export default Location
 
 
-const data1 = ["Chandigarh International Airport", "Chandigarh bus stand"]
+const chd1 = ["Chandigarh International Airport", "Chandigarh bus stand"]
 
-const data2 = [
+const chd2 = [
   "Chandigarh International Airport","Chandigarh Railway Station", 'Chandiagrh, India', 'Chandiagrh bus stand',
   'Chandigarh University', 'Zirakpur Bus Stand'
+]
+
+const delhi1 = ["Delhi International Airport", "Delhi bus stand"]
+
+const delhi2 = [
+  "Delhi International Airport","Delhi Railway Station", 'Delhi, India', 'Delhi bus stand',
+  'Delhi University'
+]
+
+const mumbai1 = ["Mumbai International Airport", "Mumbai bus stand"]
+
+const mumbai2 = [
+  "Mumbai International Airport","Mumbai Railway Station", 'Mumbai, India', 'Mumbai bus stand',
+  'Mumbai University'
 ]

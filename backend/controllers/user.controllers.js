@@ -40,8 +40,9 @@ const login = async (req, res) => {
   ) {
     try {
       const check = await UserModel.find({ email });
+      console.log('check:', check)
       if (check.length) {
-        bcrypt.compare(password, check[0].password, (err, result) => {
+        bcrypt.compare(password, check[0].password, async (err, result) => {
           if (result) {
             const token = jwt.sign(
               {
@@ -52,8 +53,13 @@ const login = async (req, res) => {
               process.env.secretKey,
               { expiresIn: "1h" }
             );
-
-            res.status(200).json({ message: "Login Successful", token: token });
+            try{
+              await UserModel.findByIdAndUpdate(check[0]._id,{isActive:true})
+              res.status(200).json({ message: "Login Successful", token: token });
+            }
+            catch(err){
+              res.status(500).json({message:"Something went wrong.",error:err.message})
+            }
           } else {
             res.status(401).json({ message: "Wrong password" });
           }
@@ -72,6 +78,7 @@ const login = async (req, res) => {
     }
   }
 };
+
 
 //? GET ALL THE USERS FOR ADMIN PANEL
 const getAllUser = async (req, res) => {

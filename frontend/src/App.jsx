@@ -1,4 +1,3 @@
-
 import Payment from "./Pages/Payment/Payment"
 import Profile from "./Pages/Profile/Profile"
 
@@ -21,3 +20,5 @@ function App() {
     </div>
   )
 }
+
+export default App

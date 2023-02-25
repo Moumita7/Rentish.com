@@ -38,10 +38,11 @@ import { GiGearStickPattern } from "react-icons/gi";
 import { MdHdrAuto } from "react-icons/md";
 
 let filter_flex_left = {
-  border: "1px solid violet",
+  boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
   alignItems: "center",
   gap: "30px",
-  width: "35%",
+  width: {base:"27rem", md:"20rem", sm:"10rem"},
+  height:"1200px",
   padding: "0.5rem",
 };
 
@@ -77,7 +78,10 @@ const ProductCardFilter = () => {
 
           <Text style={{ marginBottom: "1rem" }}>Sort By</Text>
           <Box>
-            <Grid templateColumns="repeat(4,1fr)" style={{ gap: "10px" }}>
+            <Grid
+              templateColumns="repeat(4,1fr)"
+              style={{ gap: "10px", width: "23rem" }}
+            >
               <Box
                 className="grid-items-filter-one"
                 style={grid_items_filter_one}
@@ -136,7 +140,15 @@ const ProductCardFilter = () => {
               </Box>
             </Grid>
 
-            <Flex style={{ alignItems: "center", padding: "1rem" }}>
+            <Flex
+              style={{
+                alignItems: "center",
+                padding: "1rem",
+                borderTop: "1px solid",
+                borderBottom: "1px solid",
+                margin: "15px 0px",
+              }}
+            >
               <AiOutlineCar size={30} style={{ paddingRight: "5px" }} />
               <Box className="filter-srearch-two" style={filter_srearch_two}>
                 <Text as="b">Include specific cars</Text>
@@ -187,7 +199,7 @@ const ProductCardFilter = () => {
                 style={grid_items_filter_one}
               >
                 <RiCarWashingLine />
-                <Text>Luxary</Text>
+                <Text>Luxury</Text>
               </Box>
             </Grid>
 

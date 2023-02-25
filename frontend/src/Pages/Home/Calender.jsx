@@ -10,15 +10,26 @@ import {
     SliderThumb,
     SliderMark,
   } from '@chakra-ui/react'
+  import {postDate} from "../../redux/HomeReducer/action";
+  import {useSelector, useDispatch} from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 const Calender = () => {
     const [value, onChange] = useState(new Date());
     const [value2, onChange2] = useState(new Date());
     const [sliderValue, setSliderValue] = useState(10);
-    const [sliderValue2, setSliderValue2] = useState(10);
+    const [sliderValue2, setSliderValue2] = useState(16);
     const [time1, setTime1] = useState("10:00 AM");
     const [time2, setTime2] = useState("04:00 PM")
-   
+    const dispatch  = useDispatch();
+   const nav  =useNavigate()
+     const handleClick = ()=>{
+      const obj={startDate:value, endDate:value2, startTime:time1,endTime:time2}
+    console.log(obj)
+    dispatch(postDate(obj))
+    //  nav("/result")
+     }
+
     const handleSliderValue = (val)=>{
         setSliderValue(val)
         if(val===0)  setTime1("00:00 AM");
@@ -141,7 +152,7 @@ const Calender = () => {
         width:"75%",boxShadow: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
         margin:"auto",padding:"50px 10px"
         }}> Drop Off Time:
-      <Slider aria-label='slider-ex-6' defaultValue={10} min={0} max={23} 
+      <Slider aria-label='slider-ex-6' defaultValue={16} min={0} max={23} 
       onChange={ (val)=>handleSliderValue2(val)}  >
         
         <SliderMark
@@ -164,7 +175,7 @@ const Calender = () => {
 
     <Box width="70%" margin='auto'  marginTop='20px' marginBottom='40px' >
     <Box width="10%" margin='auto' >
-        <Button style={{backgroundColor:"#10a310" ,color:'white' }}  >Continue</Button>
+        <Button style={{backgroundColor:"#10a310" ,color:'white' }} onClick={handleClick} >Continue</Button>
     </Box>
     </Box>
       </div>
