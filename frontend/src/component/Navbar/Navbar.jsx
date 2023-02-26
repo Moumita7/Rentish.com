@@ -12,6 +12,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const tok = useSelector((store) => store?.AuthReducer?.token);
+  const {registerUser} = useSelector((store) => store?.AuthReducer);
+  // console.log(registerUser)
+
   const token = localStorage.getItem("token") || tok;
   const isAdmin=localStorage.getItem("isAdmin")
   const userName=localStorage.getItem("userName")
@@ -33,7 +36,7 @@ const Navbar = () => {
         <div>
       <div className='imgg'>
    
-        <img src={"https://user-images.githubusercontent.com/97180521/220604385-412b2f4a-f2eb-4a5a-a8e2-e2d018647c3b.png"} alt="ZeeApp Logo" className="nav-logo" />
+       <Link to="/"> <img src={"https://user-images.githubusercontent.com/97180521/220604385-412b2f4a-f2eb-4a5a-a8e2-e2d018647c3b.png"} alt="ZeeApp Logo" className="nav-logo" /></Link>
       </div>
       </div>
       <div className='right_menu'>
@@ -43,12 +46,15 @@ const Navbar = () => {
       {isAdmin==="true"? <button className='login-button'>admin</button>:null}
        {
         token?
-        <Link to="/profile"> <Text color={"white"}>{userName}</Text></Link> 
+        <Link to="/profile"> <Text color={"white"}>{registerUser.name}</Text></Link> 
           :
           <Link to='/login'><button className='login-button' >Login</button></Link>
      
        }
-            {/* <button onClick={handleLogout} className='login-button'>logout</button> */}
+           
+            {/* <Link to='/login'><button className='login-button' >Login</button></Link> */}
+
+
 
       </div>
 
@@ -62,13 +68,22 @@ const Navbar = () => {
           <Drawer placement={"right"} onClose={onClose} isOpen={isOpen} >
             <DrawerOverlay />
             <DrawerContent >
-              <DrawerBody bgColor={"rgb(15,6,23)"} color={"white"} display={"grid"} gap={"10px"} className='hum-link'>
-         
-                <p>home</p>
+              <DrawerBody bgColor={"white"} color={"white"} display={"grid"}  className='hum-link'>
+         {/* box */}
+                <Box display={"flex"} gap="5" bg={"black"} h="auto">
+                  <Image w="20" h="20" borderRadius={"50"} src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-glyph-black-icon-png-image_691589.jpg"/>
+                  <Flex flexDir={"column"}>
+                    {/* <Text>{registerUser.name}</Text> */}
+                 
+                    <Text>das@gm.com</Text>
+                    <Text>787865467</Text>
+                  </Flex>
+                </Box>
+                <Text color={"black"}>credit</Text>
+                <Text  color={"black"}>city</Text>
+               <Link> <Button onClick={handleLogout} color={"black"}>Log out</Button></Link>
 
-                <p>Settings</p>
-                <p>Help Centre</p>
-                <p>Privecy Policy</p>
+           
               </DrawerBody>
             </DrawerContent>
           </Drawer>

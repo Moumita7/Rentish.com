@@ -13,12 +13,12 @@ import Profile from "../Pages/Profile/Profile";
 
 import ProductDetails from "../ProductDetails Page/ProductDetails";
 import ProductListing from "../ProductsListing Page/ProductListing";
-<<<<<<< HEAD
-import Result from "../pages/Home/Result";
-// import Profile from "../Pages/Profile/Profile";
-=======
 
->>>>>>> 1ffd7d25e446f968688d7e3264701f83be262caf
+import Result from "../pages/Home/Result";
+import Admin from "../component/Admin/Home/Admin";
+// import Profile from "../Pages/Profile/Profile";
+
+
 
 
 export default function AllRoutes() {
@@ -48,20 +48,17 @@ export default function AllRoutes() {
         <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-        <Route
+        
 
         <Route path="/products" element={<ProductListing />} />
         <Route path="/products/details" element={<ProductDetails />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/result" element={<Result />} />
+        <Route path="/admin" element={<Admin />} />
 
 
-        {/* <Route
 
-          path="/profile"
-          element={ <Profile/>}
-        />
-        <Route path="/*" element={<> 404 Not Found... </>} />
+       
       </Routes>
     </div>
   );
