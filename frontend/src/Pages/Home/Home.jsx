@@ -43,9 +43,13 @@ const handleCity = ()=>{
                 <Box style={{   margin:"auto", marginTop:"200px"}}  width={{lg:"35%",md:"50%",sm:"70%",base:"70%"}} >
                 <Box style={{ border:"1px solid white", width:"100%",borderRadius:'25px',backgroundColor:"white"}}> 
                   <Select placeholder='Select City' variant='outline' borderRadius='25px'size='lg' value={city} onChange={(e)=>setCity(e.target.value)} >
-                    <option value='chandigarh'>Chandigarh</option>
+                    <option value='bangalore'>Bangalore</option>
                     <option value='mumbai'>Mumbai</option>
                     <option value='delhi'>Delhi</option>
+                    <option value='bhopal'>Bhopal</option>
+                    <option value='hyderabad'>Hyderabad</option>
+                    <option value='indore'>Indore</option>
+                    <option value='pune'>Pune</option>
                   </Select>
                    </Box>
                    <Button style={{margin:'auto',width:'100%',backgroundColor:"#10a310" 

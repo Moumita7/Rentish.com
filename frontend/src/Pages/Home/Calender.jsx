@@ -119,8 +119,8 @@ const Calender = () => {
         width:"70%",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
         margin:"auto",marginTop:"20px", padding:"40px"
         }} flexDirection={{lg:'row',md:'column',sm:'column',base:'column'}}  >
-            <Box marginTop={{base:"30px"}}><Calendar onChange={onChange} value={value}  /></Box>     
-            <Box marginTop={{base:"30px"}} ><Calendar onChange={onChange2} value={value2} /></Box>
+            <Box marginTop={{base:"30px"}}><Calendar onChange={onChange} value={value} minDate={new Date()} /></Box>     
+            <Box marginTop={{base:"30px"}} ><Calendar onChange={onChange2} value={value2} minDate={new Date()}/></Box>
         </Box>
 {/* //------------------------------------------------ Slider1     -----------------------------------------------------------// */}
 

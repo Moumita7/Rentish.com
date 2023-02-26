@@ -16,14 +16,26 @@ const nav = useNavigate();
 const dispatch  = useDispatch();
 
 useEffect(()=>{
- if(city==="chandigarh"){
-  setData1(chd1);    setData2(chd2)
+ if(city==="bangalore"){
+  setData1(bgl1);    setData2(bgl2)
  }
  else if(city==="mumbai"){
   setData1(mumbai1);    setData2(mumbai2)
  }
  else if(city==="delhi"){
   setData1(delhi1);    setData2(delhi2)
+ }
+ else if(city==="bhopal"){
+  setData1(bhopal1);    setData2(bhopal2)
+ }
+ else if(city==="hyderabad"){
+  setData1(hyd1);    setData2(hyd2)
+ }
+ else if(city==="indore"){
+  setData1(indore1);    setData2(indore2)
+ }
+ else if(city==="pune"){
+  setData1(pune1);    setData2(pune2)
  }
 
 },[])
@@ -100,11 +112,11 @@ const handleClick = ()=>{
 export default Location
 
 
-const chd1 = ["Chandigarh International Airport", "Chandigarh bus stand"]
+const bgl1 = ["Bangalore International Airport", "Bangalore bus stand"]
 
-const chd2 = [
-  "Chandigarh International Airport","Chandigarh Railway Station", 'Chandiagrh, India', 'Chandiagrh bus stand',
-  'Chandigarh University', 'Zirakpur Bus Stand'
+const bgl2 = [
+  "Bangalore International Airport","Bangalore Railway Station", 'Bangalore, India', 'Bangalore bus stand',
+  'Bangalore University',
 ]
 
 const delhi1 = ["Delhi International Airport", "Delhi bus stand"]
@@ -120,3 +132,32 @@ const mumbai2 = [
   "Mumbai International Airport","Mumbai Railway Station", 'Mumbai, India', 'Mumbai bus stand',
   'Mumbai University'
 ]
+
+const bhopal1 = ["Bhopal International Airport", "Bhopal bus stand"]
+
+const bhopal2 = [
+  "Bhopal International Airport","Bhopal Railway Station", 'Bhopal, India', 'Bhopal bus stand',
+  'Bhopal University'
+]
+
+const hyd1 = ["Hyderabad International Airport", "Hyderabad bus stand"]
+
+const hyd2 = [
+  "Hyderabad International Airport","Hyderabad Railway Station", 'Hyderabad, India', 'Hyderabad bus stand',
+  'Hyderabad University'
+]
+
+const indore1 = ["Indore International Airport", "Indore bus stand"]
+
+const indore2 = [
+  "Indore International Airport","Indore Railway Station", 'Indore, India', 'Indore bus stand',
+  'Indore University'
+]
+
+const pune1 = ["Pune International Airport", "Pune bus stand"]
+
+const pune2 = [
+  "Pune International Airport","Pune Railway Station", 'Pune, India', 'Pune bus stand',
+  'Pune University'
+]
+
