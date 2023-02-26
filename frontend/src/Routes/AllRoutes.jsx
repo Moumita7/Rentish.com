@@ -28,7 +28,7 @@ export default function AllRoutes() {
         <Route path="/signup" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/products" element={<ProductListing />} />
-        <Route path="/products/details" element={<ProductDetails />} />
+        <Route path="/products/details/:id" element={<ProductDetails />} />
         {/* <Route
           path="/profile"
           element={<PrivateRoutes> {<Profile />}</PrivateRoutes>}

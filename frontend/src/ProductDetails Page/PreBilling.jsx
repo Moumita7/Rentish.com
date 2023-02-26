@@ -9,6 +9,7 @@ const outerStyle = {
   boxShadow: "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",
   padding: "1rem",
   width: "450px",
+  marginRight:"1rem",
   margin:"auto"
 };
 
@@ -31,26 +32,26 @@ const PreBilling = () => {
 
       <Flex style={{ alignItems: "center", justifyContent: "space-around" }}>
         <TbLetterA />
-        <Box>
-          <Text>Basic (₹569)</Text>
+        <Box style={{borderBottom:"1px solid", paddingBottom:"2rem", paddingTop:"1rem"}}>
+          <Text><b>Basic (₹ 569/-)</b></Text>
           <Text>You pay up to INR 3499 in case of any damage</Text>
         </Box>
         <Checkbox size='lg'></Checkbox>
       </Flex>
       <Flex style={{ alignItems: "center", justifyContent: "space-around" }}>
         <TbLetterB />
-        <Box>
-          <Text>Basic (₹569)</Text>
-          <Text>You pay up to INR 3499 in case of any damage</Text>
+        <Box style={{borderBottom:"1px solid", paddingBottom:"2rem", paddingTop:"1rem"}}>
+          <Text style={{color:"purple"}}><b>Saver (₹ 1009/-)</b></Text>
+          <Text>You pay up to INR 1099 in case of any damage</Text>
           <Text style={{ color: "green" }}>Most Opted</Text>
         </Box>
         <Checkbox size='lg'></Checkbox>
       </Flex>
       <Flex style={{ alignItems: "center", justifyContent: "space-around" }}>
         <TbLetterC />
-        <Box>
-          <Text>Basic (₹569)</Text>
-          <Text>You pay up to INR 3499 in case of any damage</Text>
+        <Box style={{borderBottom:"1px solid", paddingBottom:"2rem", paddingTop:"1rem"}}>
+          <Text style={{color:"gold"}}><b>Gold (₹ 1700/-)</b></Text>
+          <Text>You pay up to INR 399 in case of any damage</Text>
           <Text style={{ color: "green" }}>Value for Money</Text>
         </Box>
         <Checkbox size='lg'></Checkbox>

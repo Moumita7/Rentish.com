@@ -1,7 +1,9 @@
 import { Box, Flex, Grid, Show } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ProductCard from "./ProductCard";
 import ProductCardFilter from "./ProductCardFilter";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 //CSS styling below
 let main_content_area = {
@@ -21,6 +23,27 @@ let prod_flex_right = {
 //CSS styling ends here
 
 const ProductListing = () => {
+  const [data, setData] = useState([]);
+
+  const handleFetch = async () => {
+    let authToken = localStorage.getItem("token");
+    const res = await axios.get(
+      "https://worrisome-tick-tights.cyclic.app/cars",
+      {
+        headers: {
+          Authentication: authToken,
+        },
+      }
+    );
+
+    setData(res.data.data);
+    // tokenFetcher();
+  };
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
   return (
     <Flex
       className="main-content-area"
@@ -32,15 +55,15 @@ const ProductListing = () => {
       </Show>
       <Box className="prod-flex-right" style={prod_flex_right}>
         <Grid
-          templateColumns={["repeat(1,1fr)", "repeat(2,1fr)","repeat(3,1fr)"]}
+          templateColumns={["repeat(1,1fr)", "repeat(2,1fr)", "repeat(3,1fr)"]}
           style={{ width: "100%", gap: "20px" }}
         >
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {data &&
+            data.map((items) => (
+              <Link key={items._id} to={`details/${items._id}`}>
+                <ProductCard {...items} />
+              </Link>
+            ))}
         </Grid>
       </Box>
     </Flex>
