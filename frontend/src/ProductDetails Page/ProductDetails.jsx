@@ -31,8 +31,9 @@ const ProductDetails = () => {
 
 const ProductDetails = () => {
   const [loading, setLoading] = useState(false);
-  const [photos, setPhotos] = useState([])
+  const [photos, setPhotos] = useState([]);
   const [post, setPost] = useState([]);
+  const [price, setPrice] = useState(0);
   const params = useParams();
 
 
@@ -49,6 +50,11 @@ const ProductDetails = () => {
         }
       );
       setPost(response.data.data);
+
+      setPhotos(response.data.data[0].url);
+      setPrice(response.data.data[0].per_hour_charge);
+      localStorage.setItem("icardetails",JSON.stringify(response.data.data[0]));
+
 
       console.log(response);
 
@@ -98,7 +104,10 @@ const ProductDetails = () => {
   }
 
   return (
-    <Flex direction={["column", "column", "row"]} style={{gap:"2rem", width:"80%", margin:"auto"}}>
+    <Flex
+      direction={["column", "column", "row"]}
+      style={{ gap: "2rem", width: "80%", margin: "auto" }}
+    >
       <Box className="prod-deets-left-flex" style={prod_deets_left_flex}>
         <ItemCarousel slidesImages={photos} />
 
@@ -121,7 +130,7 @@ const ProductDetails = () => {
 
 
       <Box className="prod-bill-right-flex">
-        <PreBilling />
+        <PreBilling totalPrice={price} />
       </Box>
     </Flex>
   );
