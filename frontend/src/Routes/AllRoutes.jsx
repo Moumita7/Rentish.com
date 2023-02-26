@@ -14,10 +14,10 @@ import Profile from "../Pages/Profile/Profile";
 import ProductDetails from "../ProductDetails Page/ProductDetails";
 import ProductListing from "../ProductsListing Page/ProductListing";
 
+
 // import Result from "../Pages/Home/result";
 
-
-import Result from "../pages/Home/Result";
+import Result from "../pages/Home/result";
 import Admin from "../component/Admin/Home/Admin";
 import Users from "../component/Admin/components/User/User";
 // import Profile from "../Pages/Profile/Profile";
