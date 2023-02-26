@@ -8,15 +8,13 @@ import GoogleMaps from "./GoogleMaps";
 import KeepinMind from "./KeepinMind";
 import Loader from "./Loader";
 import PreBilling from "./PreBilling";
-import { useSelector } from "react-redux"
 
 const prod_deets_left_flex = {
+  margin: "1%",
   boxShadow:
     "rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px",
   padding: "1rem",
   margin: "auto",
-  width:"80%",
-  border: "1px solid"
 };
 
 const ProductDetails = () => {
@@ -24,8 +22,6 @@ const ProductDetails = () => {
   const [photos, setPhotos] = useState([])
   const [post, setPost] = useState([]);
   const params = useParams();
-
-  let a= 6;
 
   const handleFetch = async (params) => {
     let authToken = localStorage.getItem("token");

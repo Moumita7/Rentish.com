@@ -29,7 +29,7 @@ const Calender = () => {
       const obj={startDate:startdate, endDate:endDate, startTime:time1,endTime:time2}
     console.log(obj)
     dispatch(postDate(obj))
-     // nav("/result")
+      nav("/products")
      }
 
     const handleSliderValue = (val)=>{
