@@ -22,12 +22,14 @@ const Calender = () => {
     const [time1, setTime1] = useState("10:00 AM");
     const [time2, setTime2] = useState("04:00 PM")
     const dispatch  = useDispatch();
-   const nav  =useNavigate()
+   const nav  = useNavigate()
      const handleClick = ()=>{
-      const obj={startDate:value, endDate:value2, startTime:time1,endTime:time2}
+      const startdate = (`${value.getFullYear()}/${value.getMonth()+1}/${value.getDate()}`)
+      const endDate = (`${value2.getFullYear()}/${value2.getMonth()+1}/${value2.getDate()}`)
+      const obj={startDate:startdate, endDate:endDate, startTime:time1,endTime:time2}
     console.log(obj)
     dispatch(postDate(obj))
-    //  nav("/result")
+     // nav("/result")
      }
 
     const handleSliderValue = (val)=>{
@@ -89,9 +91,9 @@ const Calender = () => {
       <div>
         
          <Box style={{display:'flex',justifyContent:"space-between",
-        width:"40%",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        margin:"auto", marginTop:"30px", padding:"20px"
-        }} flexDirection={{lg:'row',md:'row',sm:'column',base:'column'}}  >
+       boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        margin:"auto", marginTop:"50px", padding:"20px"
+        }} flexDirection={{lg:'row',md:'row',sm:'column',base:'column'}}   width={{lg:"40%",md:"50%",sm:"60%",base:"70%"}}>
 
         <Box>
         <Box  >
@@ -116,9 +118,9 @@ const Calender = () => {
         <Box style={{display:'flex',justifyContent:"space-between",
         width:"70%",boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
         margin:"auto",marginTop:"20px", padding:"40px"
-        }} flexDirection={{lg:'row',md:'row',sm:'column',base:'column'}}  >
-            <Box><Calendar onChange={onChange} value={value}  /></Box>     
-            <Box><Calendar onChange={onChange2} value={value2} /></Box>
+        }} flexDirection={{lg:'row',md:'column',sm:'column',base:'column'}}  >
+            <Box marginTop={{base:"30px"}}><Calendar onChange={onChange} value={value} minDate={new Date()} /></Box>     
+            <Box marginTop={{base:"30px"}} ><Calendar onChange={onChange2} value={value2} minDate={new Date()}/></Box>
         </Box>
 {/* //------------------------------------------------ Slider1     -----------------------------------------------------------// */}
 

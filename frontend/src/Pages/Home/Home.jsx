@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box ,Image,Heading, SimpleGrid, Input, Select, Button, useToast} from '@chakra-ui/react';
+import { Box ,Image,Heading, SimpleGrid, Select, Button, useToast} from '@chakra-ui/react';
 import { Carousel } from './Carousel';
 import HomepageTabs from "./HomepageTabs";
 import {postCity} from "../../redux/HomeReducer/action";
@@ -36,16 +36,20 @@ const handleCity = ()=>{
   {/*---------------------------------------------    First image  --------------------------------------------------*/}
             <Box backgroundImage={"https://www.zoomcar.com/img/web_banner.jpg"} h="750px" border="1px solid white" > 
                 <Box  style={{ border:"1px solid #585853", width:"70%", margin:"auto", marginTop:"100px",padding:"25px",backgroundColor:"#585853"}} > 
-                    <Heading style={{color:"white",fontSize:"43px", textAlign:"center"}} >The perfect car for your next trip is just around the corner  </Heading>
-                    <Heading style={{color:"white",fontSize:"30px", textAlign:"center",marginTop:"25px"}} > Book your drive now! </Heading>
+                    <Heading style={{color:"white", textAlign:"center"}} fontSize={{lg:"43px",md:"35px",sm:"28px",base:"20px"}}>The perfect car for your next trip is just around the corner  </Heading>
+                    <Heading style={{color:"white", textAlign:"center",marginTop:"25px"}} fontSize={{lg:"30px",md:"26px",sm:"22px",base:"16px"}}> Book your drive now! </Heading>
                 </Box>
 
-                <Box style={{  width:"35%", margin:"auto", marginTop:"200px"}}>
+                <Box style={{   margin:"auto", marginTop:"200px"}}  width={{lg:"35%",md:"50%",sm:"70%",base:"70%"}} >
                 <Box style={{ border:"1px solid white", width:"100%",borderRadius:'25px',backgroundColor:"white"}}> 
                   <Select placeholder='Select City' variant='outline' borderRadius='25px'size='lg' value={city} onChange={(e)=>setCity(e.target.value)} >
-                    <option value='chandigarh'>Chandigarh</option>
+                    <option value='bangalore'>Bangalore</option>
                     <option value='mumbai'>Mumbai</option>
                     <option value='delhi'>Delhi</option>
+                    <option value='bhopal'>Bhopal</option>
+                    <option value='hyderabad'>Hyderabad</option>
+                    <option value='indore'>Indore</option>
+                    <option value='pune'>Pune</option>
                   </Select>
                    </Box>
                    <Button style={{margin:'auto',width:'100%',backgroundColor:"#10a310" 
@@ -67,10 +71,10 @@ const handleCity = ()=>{
           />
           </Box>
 {/*---------------------------------------------    Second image  --------------------------------------------------*/}
-            <Box backgroundImage={"https://zoomcar-assets.zoomcar.com/images/original/97c77ce8da5affded5e3c4bde712044a90728781.png?1672044755"} h="750px" border="1px solid white" > 
+            <Box backgroundImage={"https://zoomcar-assets.zoomcar.com/images/original/97c77ce8da5affded5e3c4bde712044a90728781.png?1672044755"} h="750px"  border="1px solid white" > 
             <Box  style={{ border:"1px solid #585853", width:"70%", margin:"auto", marginTop:"100px",padding:"25px",backgroundColor:"#585853"}} >
-                <Heading style={{color:"white",fontSize:"40px", textAlign:"center"}} >Largest car sharing marketplace</Heading>
-                <Heading style={{color:"white",fontSize:"27px", textAlign:"center",marginTop:"25px"}} > Sedans for short distances, SUVs for tough terrains, luxury cars for surprises - we’ve got it all! </Heading>
+                <Heading style={{color:"white", textAlign:"center"}} fontSize={{lg:"43px",md:"35px",sm:"28px",base:"22px"}}>Largest car sharing marketplace</Heading>
+                <Heading style={{color:"white", textAlign:"center",marginTop:"25px"}} fontSize={{lg:"30px",md:"26px",sm:"22px",base:"16px"}}> Sedans for short distances, SUVs for tough terrains, luxury cars for surprises - we’ve got it all! </Heading>
                 </Box>
              </Box>
 {/*---------------------------------------------    Second Slider  --------------------------------------------------*/}
@@ -89,9 +93,9 @@ const handleCity = ()=>{
             <Heading style={{ textAlign:"center", marginTop:"20px",fontSize:"23px",marginBottom:"60px"}} >We cover you under all the circumstances to ensure the best journey </Heading>
 {/*---------------------------------------------    Third image  --------------------------------------------------*/}
             <Box backgroundImage={"https://zoomcar-assets.zoomcar.com/images/original/25371b7b5084fc451b0c3ec9eda278f791188c69.png?1672044863"} h="750px" border="1px solid #383838" > 
-            <Box  style={{ border:"1px solid #585853", width:"50%", margin:"auto", marginTop:"100px",padding:"25px",backgroundColor:"#585853"}} > 
-            <Heading style={{color:"white",fontSize:"40px", textAlign:"center"}} >Drive worry free with our cars!</Heading>
-                <Heading style={{color:"white",fontSize:"27px", textAlign:"center",marginTop:"25px"}} >24X7 Roadside assistance whenever you need</Heading>
+            <Box  style={{ border:"1px solid #585853", margin:"auto", marginTop:"100px",padding:"25px",backgroundColor:"#585853"}} width={{lg:"50%",md:"60%",sm:"65%",base:"70%"}}> 
+            <Heading style={{color:"white", textAlign:"center"}} fontSize={{lg:"43px",md:"35px",sm:"28px",base:"22px"}} >Drive worry free with our cars!</Heading>
+                <Heading style={{color:"white", textAlign:"center",marginTop:"25px"}} fontSize={{lg:"30px",md:"26px",sm:"22px",base:"16px"}}>24X7 Roadside assistance whenever you need</Heading>
                 </Box>
              </Box>
               <Box bg='#383838' color='white' >

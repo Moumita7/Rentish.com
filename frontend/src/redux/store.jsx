@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
     home:HomeReducer,
     // AuthReducer
 
-    AuthReducer
+    //AuthReducer
 
 //   AuthReducer,
 
