@@ -8,17 +8,24 @@ import { MdManageAccounts } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
 import MyAccount from '../../Component/MyAccount/MyAccount';
 import MyBooking from '../../Component/MyBooking/MyBooking';
+// import { useSelector } from 'react-redux';
 
 
 const Profile = () => {
   const [Component, setComponent]=useState("Account")
   const ID="focusdiv"
-
-
+  
+  // const {registerUser} = useSelector((store) => store?.AuthReducer);
+  // console.log(registerUser)
+  
+  
+  
+  
   const handleChangeComponent =(val)=>{
     setComponent(val)
     
   }
+  console.log("efwf")
   return (
     <div className='profile_main_box'>
       

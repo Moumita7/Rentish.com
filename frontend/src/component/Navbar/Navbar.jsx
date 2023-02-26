@@ -18,7 +18,7 @@ const Navbar = () => {
   const token = localStorage.getItem("token") || tok;
   const isAdmin=localStorage.getItem("isAdmin")
   const userName=localStorage.getItem("userName")
-  console.log(isAdmin)
+  // console.log(isAdmin)
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -43,10 +43,11 @@ const Navbar = () => {
       <Button borderRadius={"50px"} gap="4"><Image w={"8"}  src={"https://user-images.githubusercontent.com/97180521/220669627-a30e600e-5ba1-4156-b85e-69b7a9d18c2c.png"}/> Become a host</Button>
 
       <div className='navv-linkss' id="navv-link">
-      {isAdmin==="true"? <button className='login-button'>admin</button>:null}
+      {isAdmin==="true"? <Link to={"/admin"}>
+      <button className='login-button'>admin</button></Link>:null}
        {
         token?
-        <Link to="/profile"> <Text color={"white"}>{registerUser.name}</Text></Link> 
+        <Link to="/profile"> <Text color={"white"}>{registerUser?.name? registerUser.name: <Link to='/login'><button className='login-button' >Login</button></Link> }</Text></Link> 
           :
           <Link to='/login'><button className='login-button' >Login</button></Link>
      
@@ -73,10 +74,13 @@ const Navbar = () => {
                 <Box display={"flex"} gap="5" bg={"black"} h="auto">
                   <Image w="20" h="20" borderRadius={"50"} src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-glyph-black-icon-png-image_691589.jpg"/>
                   <Flex flexDir={"column"}>
-                    {/* <Text>{registerUser.name}</Text> */}
+                    <Text>{registerUser&&registerUser.name}</Text>
                  
-                    <Text>das@gm.com</Text>
-                    <Text>787865467</Text>
+                    <Text>{registerUser&&registerUser.email}</Text>
+                    {/* <Text color={"black"}>credit</Text> */}
+
+                    <Text>{registerUser&&registerUser.phone}</Text>
+
                   </Flex>
                 </Box>
                 <Text color={"black"}>credit</Text>
