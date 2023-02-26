@@ -8,11 +8,11 @@
     gap: 10px;
     justify-content: space-between;
 text-align: center;
-    padding: 10px;
+    padding: 15px;
     padding-left: 15px;
     padding-right: 15px;
     background-color: rgb(15, 6, 23);
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     /* background-color: rgb(15,6,23); */
     /* Animation */
     transition-timing-function: ease-in;

@@ -138,13 +138,24 @@ const Register = () => {
           
             <FormControl id="city" isRequired>
               <FormLabel color={"#00BE2D"}>Enter City</FormLabel>
-              <Input type="text" 
+              {/* <Input type="text" 
                   value={state.city}
                   onChange={(e) =>
                     setState({ type: "city", payload: e.target.value })
                   }
                 
-              />
+              /> */}
+                   <Select placeholder='Select City' variant='outline' borderRadius='25px' size='lg' value={state.city} onChange={(e) =>
+                    setState({ type: "city", payload: e.target.value })
+                  } >
+                    <option value='bangalore'>Bangalore</option>
+                    <option value='mumbai'>Mumbai</option>
+                    <option value='delhi'>Delhi</option>
+                    <option value='bhopal'>Bhopal</option>
+                    <option value='hyderabad'>Hyderabad</option>
+                    <option value='indore'>Indore</option>
+                    <option value='pune'>Pune</option>
+                  </Select>
             </FormControl>
               {/* phone */}
               <InputGroup >
