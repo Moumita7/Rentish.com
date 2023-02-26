@@ -14,7 +14,7 @@ import Profile from "../Pages/Profile/Profile";
 import ProductDetails from "../ProductDetails Page/ProductDetails";
 import ProductListing from "../ProductsListing Page/ProductListing";
 
-import Result from "../Pages/Home/result";
+// import Result from "../Pages/Home/result";
 
 
 import Result from "../pages/Home/Result";
@@ -47,7 +47,7 @@ export default function AllRoutes() {
 
 
 
-        <Route path="/result" element={<Result />} />
+        {/* <Route path="/result" element={<Result />} /> */}
 
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route
