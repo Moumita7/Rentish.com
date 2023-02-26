@@ -30,12 +30,11 @@ const LoginUser = (payload, toast, navigate) => (dispatch) => {
   return axios
     .post("https://worrisome-tick-tights.cyclic.app/users/login", payload)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       const token = res.data.token;
      let response= parseJwt(token);
-     console.log(token)
-     console.log(response)
-
+    //  console.log(token)
+    //  console.log(response)
       localStorage.setItem("token",token)
       localStorage.setItem("userId", response.userId)
       localStorage.setItem("isAdmin", response.isAdmin)

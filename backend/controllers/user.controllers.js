@@ -101,28 +101,34 @@ const login = async (req, res) => {
       const check = await UserModel.find({ email });
       console.log('check:', check)
       if (check.length) {
-        bcrypt.compare(password, check[0].password, async (err, result) => {
-          if (result) {
-            const token = jwt.sign(
-              {
-                userId: check[0]._id,
-                isAdmin: check[0].isAdmin,
-                city:check[0].city
-              },
-              process.env.secretKey,
-              { expiresIn: "1h" }
-            );
-            try{
-              await UserModel.findByIdAndUpdate(check[0]._id,{isActive:true})
-              res.status(200).json({ message: "Login Successful", token: token });
+        if(check[0].isVerify===true){
+          bcrypt.compare(password, check[0].password, async (err, result) => {
+            if (result) {
+              const token = jwt.sign(
+                {
+                  userId: check[0]._id,
+                  isAdmin: check[0].isAdmin,
+                  city:check[0].city
+                },
+                process.env.secretKey,
+                { expiresIn: "1h" }
+              );
+              try{
+                const {name,email,city,gender,avatar,isActive,phone} = check[0]
+                const userData = {name,email,city,gender,avatar,isActive,phone}
+                await UserModel.findByIdAndUpdate(check[0]._id,{isActive:true})
+                res.status(200).json({ message: "Login Successful", token: token,user:userData });
+              }
+              catch(err){
+                res.status(500).json({message:"Something went wrong.",error:err.message})
+              }
+            } else {
+              res.status(401).json({ message: "Wrong password" });
             }
-            catch(err){
-              res.status(500).json({message:"Something went wrong.",error:err.message})
-            }
-          } else {
-            res.status(401).json({ message: "Wrong password" });
-          }
-        });
+          });
+        }else{
+          res.status(401).json({message:"Please verify you email first."})
+        }
       } else {
         res.status(404).json({ message: "User not found" });
       }
