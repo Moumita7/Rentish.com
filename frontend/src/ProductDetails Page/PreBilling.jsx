@@ -1,10 +1,12 @@
 import { Box, Button, Checkbox, Flex, Heading, Text } from "@chakra-ui/react";
 import React, { useEffect } from "react";
+import { useState } from "react";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { TbLetterA } from "react-icons/tb";
 import { TbLetterB } from "react-icons/tb";
 import { TbLetterC } from "react-icons/tb";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const outerStyle = {
   boxShadow:
@@ -15,7 +17,9 @@ const outerStyle = {
   margin: "auto",
 };
 
-const PreBilling = () => {
+const PreBilling = ({totalPrice=100}) => {
+  const navigate = useNavigate()
+  const [time, setTime] = useState(1)
   const date = useSelector((store) => store.home.date);
   console.log(date);
 
@@ -39,7 +43,9 @@ const PreBilling = () => {
       let endDate = new Date(end[0], end[1], end[2]);
       let totalTime = diff_hours(startDate, endDate);
       console.log(end, start);
+      setTime(totalTime);
       console.log(totalTime);
+      localStorage.setItem("totalPrice",totalPrice*totalTime)
     }
   }, [date]);
 
@@ -136,7 +142,7 @@ const PreBilling = () => {
 
       <Box mt="3rem">
         <Heading mb="2rem" size="lg">
-          <Text fontSize="sm">Total Price:</Text>₹ 20,450
+          <Text fontSize="sm">Total Price:</Text>₹ {Number(totalPrice)*time}/-
         </Heading>
         <Button colorScheme="whatsapp" w="100%">
           Proceed to Pay

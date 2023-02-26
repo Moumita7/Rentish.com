@@ -28,9 +28,11 @@ const Navbar = () => {
   const token = localStorage.getItem("token");
   console.log(token);
   const userDetailsFromLs = JSON.parse(localStorage.getItem("userDetails"));
-  
+  // console.log(" userDetailsFromLs", userDetailsFromLs.userName);
+
   const isAdmin = userDetailsFromLs.admin;
   console.log(" admin",isAdmin);
+
 
   const [tryy, setTryy] = useState(true);
 
