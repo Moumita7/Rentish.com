@@ -7,18 +7,18 @@ const HomepageTabs = () => {
     <Box width='90%' margin='auto' >
         <Tabs isFitted >
   <TabList  >
-    <Tab fontSize='26px' _selected={{ color: 'white', bg: '#383835' }} >ABOUT US</Tab>
-    <Tab fontSize='26px' _selected={{ color: 'white', bg: '#383835' }} >BLOGS</Tab>
-    <Tab fontSize='26px' _selected={{ color: 'white', bg: '#383835' }}>CAREERS</Tab>
-    <Tab fontSize='26px' _selected={{ color: 'white', bg: '#383835' }}>HELP & SUPPORT</Tab>
+    <Tab fontSize={{lg:"26px",md:"22px",sm:"18px",base:"14px"}} _selected={{ color: 'white', bg: '#383835' }} >ABOUT US</Tab>
+    <Tab fontSize={{lg:"26px",md:"22px",sm:"18px",base:"14px"}} _selected={{ color: 'white', bg: '#383835' }} >BLOGS</Tab>
+    <Tab fontSize={{lg:"26px",md:"22px",sm:"18px",base:"14px"}} _selected={{ color: 'white', bg: '#383835' }}>CAREERS</Tab>
+    <Tab fontSize={{lg:"26px",md:"22px",sm:"18px",base:"14px"}} _selected={{ color: 'white', bg: '#383835' }}>HELP & SUPPORT</Tab>
   </TabList>
 
   <TabPanels>
   <TabPanel>
     {data.map((el,i)=>(
         <Box key={i} >
-            <Heading fontSize={'20px'} marginBottom="20px" mt='20px' >{el.ques}</Heading>
-            <Heading fontSize={'16px'} marginBottom="25px" lineHeight={'25px'} fontWeight='medium' >{el.ans}</Heading>
+            <Heading fontSize={{lg:"20px",md:"18px",sm:"16px",base:"15px"}} marginBottom="20px" mt='20px' >{el.ques}</Heading>
+            <Heading fontSize={{lg:"16px",md:"15px",sm:"14px",base:"13px"}} marginBottom="25px" lineHeight={'25px'} fontWeight='medium' >{el.ans}</Heading>
         </Box>
     ))}
     </TabPanel>

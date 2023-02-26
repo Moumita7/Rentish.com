@@ -6,8 +6,14 @@ import ItemCarousel from "../ProductsListing Page/ItemCarousel";
 import Cardetails from "./Cardetails";
 import GoogleMaps from "./GoogleMaps";
 import KeepinMind from "./KeepinMind";
+
 import PreBilling from "./PreBilling";
 import { useSelector, useDispatch } from "react-redux";
+=======
+import Loader from "./Loader";
+import PreBilling from "./PreBilling";
+
+
 const prod_deets_left_flex = {
   margin: "1%",
   boxShadow:
@@ -15,11 +21,21 @@ const prod_deets_left_flex = {
   padding: "1rem",
   margin: "auto",
 };
+
 const ProductDetails = () => {
   const products = useSelector((store) => store.ProductReducer);
   const [loading, setLoading] = useState(false);
   const [post, setPost] = useState([]);
   const params = useParams();
+
+
+const ProductDetails = () => {
+  const [loading, setLoading] = useState(false);
+  const [photos, setPhotos] = useState([])
+  const [post, setPost] = useState([]);
+  const params = useParams();
+
+
   const handleFetch = async (params) => {
     let authToken = localStorage.getItem("token");
     setLoading(true);
@@ -33,12 +49,17 @@ const ProductDetails = () => {
         }
       );
       setPost(response.data.data);
+
       console.log(response);
+
+      setPhotos(response.data.data[0].url)
+
       setLoading(false);
     } catch (e) {
       console.log(e);
     }
   };
+
   useEffect(() => {
     handleFetch(params);
   }, []);
@@ -66,6 +87,21 @@ const ProductDetails = () => {
           alt="car"
           margin="auto"
         />
+
+
+  useEffect(() => {
+    handleFetch(params);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  return (
+    <Flex direction={["column", "column", "row"]} style={{gap:"2rem", width:"80%", margin:"auto"}}>
+      <Box className="prod-deets-left-flex" style={prod_deets_left_flex}>
+        <ItemCarousel slidesImages={photos} />
+
         <Cardetails {...post[0]} />
         <Flex
           direction={["column", "column", "row"]}
@@ -80,11 +116,17 @@ const ProductDetails = () => {
           <KeepinMind />
         </Flex>
       </Box>
+
+
+
+
       <Box className="prod-bill-right-flex">
         <PreBilling />
       </Box>
     </Flex>
   );
 };
+
 // console.log(products)
+export default ProductDetails;
 export default ProductDetails;

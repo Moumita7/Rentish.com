@@ -1,21 +1,38 @@
 // import React from 'react'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 // import { authContext } from '../../routs/AuthContext';
 import {
-  Box, Text, Flex, Button, Drawer, DrawerOverlay, DrawerContent, DrawerBody, useDisclosure, ButtonGroup,Image
-} from "@chakra-ui/react"
+  Box,
+  Text,
+  Flex,
+  Button,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerBody,
+  useDisclosure,
+  ButtonGroup,
+  Image,
+  Center,
+} from "@chakra-ui/react";
 import "./navbar.css";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const tok = useSelector((store) => store?.AuthReducer?.token);
-  const token = localStorage.getItem("token") || tok;
-  const isAdmin=localStorage.getItem("isAdmin")
-  const userName=localStorage.getItem("userName")
-  console.log(isAdmin)
+  const { registerUser } = useSelector((store) => store?.AuthReducer);
+  // console.log(registerUser)
+  const token = localStorage.getItem("token");
+  console.log(token);
+  const userDetailsFromLs = JSON.parse(localStorage.getItem("userDetails"));
+  
+  const isAdmin = userDetailsFromLs.admin;
+  console.log(" admin",isAdmin);
+
+  const [tryy, setTryy] = useState(true);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -26,58 +43,100 @@ const Navbar = () => {
     navigate("/");
   };
 
-
   return (
     <>
-    <div className="navv">
+      <div className="navv">
         <div>
-      <div className='imgg'>
-   
-        <img src={"https://user-images.githubusercontent.com/97180521/220604385-412b2f4a-f2eb-4a5a-a8e2-e2d018647c3b.png"} alt="ZeeApp Logo" className="nav-logo" />
-      </div>
-      </div>
-      <div className='right_menu'>
-      <Button borderRadius={"50px"} gap="4"><Image w={"8"}  src={"https://user-images.githubusercontent.com/97180521/220669627-a30e600e-5ba1-4156-b85e-69b7a9d18c2c.png"}/> Become a host</Button>
-
-      <div className='navv-linkss' id="navv-link">
-      {isAdmin==="true"? <button className='login-button'>admin</button>:null}
-       {
-        token?
-        <Link to="/profile"> <Text color={"white"}>{userName}</Text></Link> 
-          :
-          <Link to='/login'><button className='login-button' >Login</button></Link>
-     
-       }
-            {/* <button onClick={handleLogout} className='login-button'>logout</button> */}
-
-      </div>
-
-      <div className='hum'>
-  
-
-        <Flex alignItems="center" className="hum-Menu" >
-          <Button  className='ham-btn' onClick={onOpen}>
-            <GiHamburgerMenu className='ham_new' />
+          <div className="imgg">
+            <Link to="/">
+              {" "}
+              <img
+                src={
+                  "https://user-images.githubusercontent.com/97180521/220604385-412b2f4a-f2eb-4a5a-a8e2-e2d018647c3b.png"
+                }
+                alt="ZeeApp Logo"
+                className="nav-logo"
+              />
+            </Link>
+          </div>
+        </div>
+        <div className="right_menu">
+          <Button borderRadius={"50px"} gap="4">
+            <Image
+              w={"8"}
+              src={
+                "https://user-images.githubusercontent.com/97180521/220669627-a30e600e-5ba1-4156-b85e-69b7a9d18c2c.png"
+              }
+            />{" "}
+            Become a host
           </Button>
-          <Drawer placement={"right"} onClose={onClose} isOpen={isOpen} >
-            <DrawerOverlay />
-            <DrawerContent >
-              <DrawerBody bgColor={"rgb(15,6,23)"} color={"white"} display={"grid"} gap={"10px"} className='hum-link'>
-         
-                <p>home</p>
 
-                <p>Settings</p>
-                <p>Help Centre</p>
-                <p>Privecy Policy</p>
-              </DrawerBody>
-            </DrawerContent>
-          </Drawer>
-        </Flex>
+          <Box display={"flex"} gap="5" className="navv-linkss" id="navv-link" >
+         {isAdmin == true ? (
+              <Link to={"/admin"}>
+                <button className="login-button">admin</button>
+              </Link>
+            ) : null}
+
+            {token ? (
+              <Link to="/profile">
+                <Text color={"white"}>{userDetailsFromLs.userName}</Text>
+              </Link>
+            ) : (
+              <Link to="/login">
+                <button className="login-button">Login</button>
+              </Link>
+            )}
+          </Box>
+
+          <div className="hum">
+            <Flex alignItems="center" className="hum-Menu">
+              <Button className="ham-btn" onClick={onOpen}>
+                <GiHamburgerMenu className="ham_new" />
+              </Button>
+              <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}>
+                <DrawerOverlay />
+                <DrawerContent>
+                  <DrawerBody
+                    bgColor={"white"}
+                    color={"white"}
+                    display={"grid"}
+                    className="hum-link"
+                  >
+                    {/* box */}
+                    <Box display={"flex"} gap="5" bg={"blackAlpha.900"} justifyContent="center" borderRadius={"20"} flexDir="column" alignItems={"center"} textAlign="center" mb={"5"}>
+                      <Image
+                        w="20"
+                        h="20"
+                        borderRadius={"50"}
+                        src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-glyph-black-icon-png-image_691589.jpg"
+                      />
+                      <Flex flexDir={"column"}>
+                        <Text color={"white"}>{userDetailsFromLs.userName}</Text>
+
+                        <Text>{userDetailsFromLs.email}</Text>
+                        {/* <Text color={"black"}>credit</Text> */}
+
+                        <Text>{userDetailsFromLs.phone}</Text>
+                      </Flex>
+                    </Box>
+                    {/* <Text color={"black"}>credit</Text>
+                    <Text color={"black"}>city</Text> */}
+                    <Link>
+                      {" "}
+                     <Center> <Button bg=" #00BE2D" onClick={handleLogout} color={"black"}>
+                        Log out
+                      </Button></Center>
+                    </Link>
+                  </DrawerBody>
+                </DrawerContent>
+              </Drawer>
+            </Flex>
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
-  </>
-  )
-}
+    </>
+  );
+};
 
-export default Navbar
+export default Navbar;
