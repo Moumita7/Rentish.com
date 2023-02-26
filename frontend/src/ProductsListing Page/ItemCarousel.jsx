@@ -3,7 +3,7 @@ import { Box, Heading, Image } from "@chakra-ui/react";
 import "./MainSlider.css";
 
 function ItemCarousel({ slidesImages }) {
-
+  console.log(slidesImages)
   const [image, setImage] = useState(0);
   let id;
   useEffect(() => {
@@ -18,12 +18,12 @@ function ItemCarousel({ slidesImages }) {
   }, [image]);
 
   return (
-    <Box w="100%" pos="relative" className="mainSlider">
+    <Box w="750px" pos="relative" className="mainSlider">
       <Box>
         <Image
           className="mainSliderimg"
           w="100%"
-          src={slidesImages[image]?.url}
+          src={slidesImages[image]}
         />
       </Box>
     </Box>

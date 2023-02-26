@@ -11,13 +11,12 @@ import {reducer as AuthReducer } from './AuthReducer/reducer';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
 
+    AuthReducer,
+
     home:HomeReducer,
     // AuthReducer
-
-    AuthReducer
-
+    //AuthReducer
 //   AuthReducer,
-
 });
 
 const store = legacy_createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)));

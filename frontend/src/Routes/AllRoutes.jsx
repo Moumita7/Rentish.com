@@ -14,10 +14,14 @@ import Profile from "../Pages/Profile/Profile";
 import ProductDetails from "../ProductDetails Page/ProductDetails";
 import ProductListing from "../ProductsListing Page/ProductListing";
 
+import Result from "../Pages/Home/result";
+
+
 import Result from "../pages/Home/Result";
 import Admin from "../component/Admin/Home/Admin";
 import Users from "../component/Admin/components/User/User";
 // import Profile from "../Pages/Profile/Profile";
+
 
 
 
@@ -37,9 +41,13 @@ export default function AllRoutes() {
 
         <Route path="/" element={<Home />} />
         <Route path="/location" element={<Location />} />
+
         <Route path="/users" element={<Users/>} />
 
 
+
+
+        <Route path="/result" element={<Result />} />
 
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route
@@ -55,6 +63,14 @@ export default function AllRoutes() {
         
 
         <Route path="/products" element={<ProductListing />} />
+
+        <Route path="/products/details/:id" element={<ProductDetails />} />
+        {/* <Route
+          path="/profile"
+          element={<PrivateRoutes> {<Profile />}</PrivateRoutes>}
+        /> */}
+        <Route path="/*" element={<> 404 Not Found... </>} />
+
         <Route path="/products/details" element={<ProductDetails />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/result" element={<Result />} />
@@ -62,9 +78,6 @@ export default function AllRoutes() {
    
 
 
-
-
-       
       </Routes>
     </div>
   );
