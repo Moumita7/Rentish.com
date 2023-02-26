@@ -52,17 +52,20 @@ const handleClick = ()=>{
 
   return (
     <div>
-        <Box style={{width:'65%', margin:'auto', marginTop:"80px",padding:"30px 0px",boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'}} >
-          <Box style={{display:"flex",justifyContent:'space-evenly',alignItems:'center'}} >
-            <Box width="40%" ><Input type="text" placeholder="Enter location" value={location} readOnly /></Box>
-            <Box style={{display:"flex", alignItems:"center"}} ><TbCurrentLocation fontSize='30px' /> Current Location</Box>
-            <Box style={{display:"flex", alignItems:"center"}}><GrMapLocation fontSize='30px' />Select Location on Map</Box>
+        <Box style={{ margin:'auto', marginTop:"80px",marginBottom:"60px",padding:"30px 0px",boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px'}} 
+        width={{lg:"65%",md:"70%",sm:"80%",base:"80%"}}  >
+          <Box style={{display:"flex",justifyContent:'space-evenly',alignItems:'center'}} 
+          flexDirection={{lg:'row',md:'row',sm:'column',base:'column'}} >
+            <Box width={{lg:"40%",md:"50%",sm:"60%",base:"70%"}} ><Input type="text" placeholder="Enter location" value={location} readOnly /></Box>
+            <Box style={{display:"flex", alignItems:"center"}}  marginTop={{lg:"none",md:"none",sm:"none",base:"15px"}} ><TbCurrentLocation fontSize='30px' /> Current Location</Box>
+            <Box style={{display:"flex", alignItems:"center"}} marginTop={{lg:"none",md:"none",sm:"none",base:"15px"}}><GrMapLocation fontSize='30px' />Select Location on Map</Box>
           </Box>
 
-          <Box style={{display:"flex",justifyContent:'space-around',marginTop:"30px" , backgroundColor:'#f5f5f5',padding:"30px 0px" }}>
+          <Box style={{display:"flex",justifyContent:'space-around',marginTop:"30px" , backgroundColor:'#f5f5f5',padding:"30px 0px" }}
+          flexDirection={{lg:'row',md:'row',sm:'column',base:'column'}}>
 
             <Box  >
-              <Box>RECENTLY SEARCHED LOCATIONS</Box>
+              <Box style={{backgroundColor:"#cdcdcd" }} >RECENTLY SEARCHED LOCATIONS</Box>
               {data1.map((el,i)=>(
                 <Box  key={i} style={{height:"70px",
                 display:"flex",borderRadius:"8px",
@@ -74,7 +77,7 @@ const handleClick = ()=>{
             </Box>
 
             <Box >
-            <Box>SUGGESTED PICK UP LOCATIONS</Box>
+            <Box style={{backgroundColor:"#cdcdcd" }}>SUGGESTED PICK UP LOCATIONS</Box>
             {data2.map((el,i)=>(
                 <Box  key={i} style={{height:"70px",boxShadow: 'rgba(0, 0, 0, 0.16) 0px 1px 4px',padding:"0px 8px",
                 display:"flex", alignItems:"center",marginBottom:"6px",backgroundColor:'white',
@@ -85,7 +88,7 @@ const handleClick = ()=>{
             </Box>
 
           </Box >
-          <Box width="30%" margin='auto' marginTop='20px' >
+          <Box width={{lg:"30%",md:"30%",sm:"46%",base:"70%"}} margin='auto' marginTop='20px' >
           <Button style={{backgroundColor:"#10a310" ,color:'white' }} onClick={handleClick} >CONFIRM PICKUP LOCATION</Button>
           </Box>
            

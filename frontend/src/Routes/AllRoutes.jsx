@@ -11,7 +11,7 @@ import Payment from "../pages/Payment/Payment";
 import Profile from "../pages/Profile/Profile";
 import ProductDetails from "../ProductDetails Page/ProductDetails";
 import ProductListing from "../ProductsListing Page/ProductListing";
-// import Profile from "../Pages/Profile/Profile";
+import Result from "../Pages/Home/result";
 
 
 export default function AllRoutes() {
@@ -26,7 +26,7 @@ export default function AllRoutes() {
 
         <Route path="/" element={<Home />} />
         <Route path="/location" element={<Location />} />
-
+        <Route path="/result" element={<Result />} />
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route
           path="/payment"
