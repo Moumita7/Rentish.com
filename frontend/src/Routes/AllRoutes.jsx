@@ -16,6 +16,7 @@ import ProductListing from "../ProductsListing Page/ProductListing";
 
 import Result from "../pages/Home/Result";
 import Admin from "../component/Admin/Home/Admin";
+import Users from "../component/Admin/components/User/User";
 // import Profile from "../Pages/Profile/Profile";
 
 
@@ -36,6 +37,9 @@ export default function AllRoutes() {
 
         <Route path="/" element={<Home />} />
         <Route path="/location" element={<Location />} />
+        <Route path="/users" element={<Users/>} />
+
+
 
         {/* <Route path="/" element={<Home />} /> */}
         {/* <Route
@@ -55,6 +59,8 @@ export default function AllRoutes() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/result" element={<Result />} />
         <Route path="/admin" element={<Admin />} />
+   
+
 
 
 

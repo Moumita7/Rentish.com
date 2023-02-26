@@ -9,6 +9,8 @@ const initialState = {
 }
 const reducer = (state = initialState, action) => {
     const { type, payload } = action;
+    
+    // console.log("dvf",type,payload)
     switch (type) {
         case types.SIGNUP_REQUEST:
             return { ...state, isLoading: true }

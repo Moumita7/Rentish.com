@@ -3,6 +3,7 @@ import React from 'react'
 // import { Link } from 'react-router-dom';
 import Sidebar from '../components/sidebar/Sidebar'
 import AdminRoutes from '../AdminRoutes'
+import Users from '../components/User/User'
 
 
 const Admin = () => {
@@ -16,7 +17,8 @@ const Admin = () => {
                          <Sidebar />
                     </Box>
                     <Box w='83%' border={'px'}>
-                         <AdminRoutes />
+                         {/* <AdminRoutes /> */}
+                         <Users/>
                     </Box>
                </Box>
                <Box>
