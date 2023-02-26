@@ -94,7 +94,7 @@ const Navbar = () => {
               <Button className="ham-btn" onClick={onOpen}>
                 <GiHamburgerMenu className="ham_new" />
               </Button>
-              <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}>
+              <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}  >
                 <DrawerOverlay />
                 <DrawerContent>
                   <DrawerBody
@@ -104,7 +104,7 @@ const Navbar = () => {
                     className="hum-link"
                   >
                     {/* box */}
-                    <Box display={"flex"} gap="5" bg={"blackAlpha.900"} justifyContent="center" borderRadius={"20"} flexDir="column" alignItems={"center"} textAlign="center" mb={"5"}>
+                    <Box display={"flex"} gap="5" bg={"blackAlpha.900"} justifyContent="center" borderRadius={"20"} flexDir="column" alignItems={"center"} textAlign="center" mb={"5"}  h={"auto"}>
                       <Image
                         w="20"
                         h="20"
