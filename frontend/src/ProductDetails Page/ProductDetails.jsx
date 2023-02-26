@@ -25,7 +25,7 @@ const ProductDetails = () => {
   const [post, setPost] = useState([]);
   const params = useParams();
 
-  // const data = useSelector(store => )
+  let a= 6;
 
   const handleFetch = async (params) => {
     let authToken = localStorage.getItem("token");
