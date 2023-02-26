@@ -12,9 +12,8 @@ import {reducer as AuthReducer } from './AuthReducer/reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
-
     AuthReducer,
-    admin:AdminReducer,
+    admin:AdminReducer
     home:HomeReducer,
     // AuthReducer
     //AuthReducer
