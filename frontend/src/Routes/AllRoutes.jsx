@@ -54,7 +54,7 @@ export default function AllRoutes() {
           path="/payment"
           element={<PrivateRoutes> {<Payment />}</PrivateRoutes>}
         /> */}
-        <Route path="/payment" element={<Payment />} />
+        {/* <Route path="/payment" element={<Payment />} /> */}
 
         {/* <Route path="/admin" element={<Admin />} /> */}
         <Route path="/signup" element={<Register />} />
