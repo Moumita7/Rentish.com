@@ -55,14 +55,19 @@ export default function AllRoutes() {
         
 
         <Route path="/products" element={<ProductListing />} />
+
+        <Route path="/products/details/:id" element={<ProductDetails />} />
+        {/* <Route
+          path="/profile"
+          element={<PrivateRoutes> {<Profile />}</PrivateRoutes>}
+        /> */}
+        <Route path="/*" element={<> 404 Not Found... </>} />
+
         <Route path="/products/details" element={<ProductDetails />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/result" element={<Result />} />
         <Route path="/admin" element={<Admin />} />
 
-
-
-       
       </Routes>
     </div>
   );
