@@ -174,12 +174,20 @@ const Register = () => {
 <FormControl id="gender" isRequired>
                   <FormLabel color={"#00BE2D"}>Gender</FormLabel>
 
-                  <Input  type="text" outline='none'
+                  {/* <Input  type="text" outline='none'
                   value={state.gender}
                   placeholder="gen"
                   onChange={(e) =>
                     setState({ type: "gender", payload: e.target.value })
-                  }  />
+                  }  /> */}
+
+<Select placeholder='Select Gender' variant='outline' borderRadius='25px' size='lg' value={state.gender} onChange={(e) =>
+                    setState({ type: "gender", payload: e.target.value })
+                  }  >
+                    <option value='male'>Male</option>
+                    <option value='female'>Female</option>
+                    <option value='other'>Other</option>
+                  </Select>
                 </FormControl>
 
             <Stack spacing={10} pt={2}>
