@@ -12,14 +12,19 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const tok = useSelector((store) => store?.AuthReducer?.token);
+  const {registerUser} = useSelector((store) => store?.AuthReducer);
+  // console.log(registerUser)
+
   const token = localStorage.getItem("token") || tok;
   const isAdmin=localStorage.getItem("isAdmin")
-  console.log(isAdmin)
+  const userName=localStorage.getItem("userName")
+  // console.log(isAdmin)
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     localStorage.removeItem("isAdmin");
+    localStorage.removeItem("userName");
 
     navigate("/");
   };
@@ -31,19 +36,26 @@ const Navbar = () => {
         <div>
       <div className='imgg'>
    
-        <img src={"https://user-images.githubusercontent.com/97180521/220604385-412b2f4a-f2eb-4a5a-a8e2-e2d018647c3b.png"} alt="ZeeApp Logo" className="nav-logo" />
+       <Link to="/"> <img src={"https://user-images.githubusercontent.com/97180521/220604385-412b2f4a-f2eb-4a5a-a8e2-e2d018647c3b.png"} alt="ZeeApp Logo" className="nav-logo" /></Link>
       </div>
       </div>
       <div className='right_menu'>
       <Button borderRadius={"50px"} gap="4"><Image w={"8"}  src={"https://user-images.githubusercontent.com/97180521/220669627-a30e600e-5ba1-4156-b85e-69b7a9d18c2c.png"}/> Become a host</Button>
 
       <div className='navv-linkss' id="navv-link">
-      {isAdmin==="true"? <button className='login-button'>admin</button>:null}
+      {isAdmin==="true"? <Link to={"/admin"}>
+      <button className='login-button'>admin</button></Link>:null}
        {
         token?
-          <button onClick={handleLogout} className='login-button'>logout</button>:
+        <Link to="/profile"> <Text color={"white"}>{registerUser?.name? registerUser.name: <Link to='/login'><button className='login-button' >Login</button></Link> }</Text></Link> 
+          :
           <Link to='/login'><button className='login-button' >Login</button></Link>
+     
        }
+           
+            {/* <Link to='/login'><button className='login-button' >Login</button></Link> */}
+
+
 
       </div>
 
@@ -57,13 +69,25 @@ const Navbar = () => {
           <Drawer placement={"right"} onClose={onClose} isOpen={isOpen} >
             <DrawerOverlay />
             <DrawerContent >
-              <DrawerBody bgColor={"rgb(15,6,23)"} color={"white"} display={"grid"} gap={"10px"} className='hum-link'>
-         
-                <p>home</p>
+              <DrawerBody bgColor={"white"} color={"white"} display={"grid"}  className='hum-link'>
+         {/* box */}
+                <Box display={"flex"} gap="5" bg={"black"} h="auto">
+                  <Image w="20" h="20" borderRadius={"50"} src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-glyph-black-icon-png-image_691589.jpg"/>
+                  <Flex flexDir={"column"}>
+                    <Text>{registerUser&&registerUser.name}</Text>
+                 
+                    <Text>{registerUser&&registerUser.email}</Text>
+                    {/* <Text color={"black"}>credit</Text> */}
 
-                <p>Settings</p>
-                <p>Help Centre</p>
-                <p>Privecy Policy</p>
+                    <Text>{registerUser&&registerUser.phone}</Text>
+
+                  </Flex>
+                </Box>
+                <Text color={"black"}>credit</Text>
+                <Text  color={"black"}>city</Text>
+               <Link> <Button onClick={handleLogout} color={"black"}>Log out</Button></Link>
+
+           
               </DrawerBody>
             </DrawerContent>
           </Drawer>

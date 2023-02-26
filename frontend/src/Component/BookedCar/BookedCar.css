@@ -1,0 +1,145 @@
+.booked_car_box{
+    width: 100%;
+    height: auto;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.booked_car_head{
+    width: 100%;
+    height: auto;
+    padding: 2px 7px;
+    /* border: 1px solid brown; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    background: #F5F5F5;
+}
+.booked_car_desp{
+    width: 100%;
+    height: 91% ;
+    display: flex;
+    flex-direction: row;
+    
+    /* border: 1px solid brown; */
+}
+.booked_car_img{
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    /* border: 1px solid brown; */
+}
+.booked_car_img img{
+    width: 100%;
+  
+}
+.carName{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.booked_car_img p+p{
+ font-size: 15px;
+ font-weight: 600;
+ letter-spacing: 1px;
+}
+
+.booked_car_detail{
+    width: 70%;
+    height: 100%;
+    /* border: 1px solid brown; */
+}
+
+.track{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    padding: 5px 7px ;
+}
+.track hr{
+    border: 1px dotted gray;
+    width: 92%;
+}
+
+.start{
+    color: green;
+}
+.end{
+    color: red;
+}
+.track p{
+    font-size: 12px;
+    /* font-weight: 600; */
+    letter-spacing: 1px;
+}
+.address{
+    display: flex;
+    justify-content: start;
+    gap: 20px;
+    align-items: center;
+    padding: 5px 15px;
+}
+
+@media(max-width:1100px){
+.carName{
+    font-size: 17px;
+}
+}
+
+@media(max-width:990px){
+    .carName{
+        font-size: 15px;
+    }
+}
+
+@media(max-width:680px){
+    .carName{
+        font-size: 13px;
+    }
+    .booked_car_img p+p{
+        font-size: 10px;
+        font-weight:200;
+        letter-spacing: 1px;
+       }
+}
+
+@media(max-width:500px){
+    .booked_car_head{
+        font-size: 8px;
+    }
+    .booked_car_desp{
+        
+        display: flex;
+        flex-direction: column;
+     
+    }
+    .booked_car_img{
+        width: 80%;
+        height: 100%;
+        text-align: center;
+        margin: auto;
+        /* border: 1px solid brown; */
+    }
+    .booked_car_detail{
+        width: 90%;
+        height: 100%;
+        margin: auto;
+        /* border: 1px solid brown; */
+    }
+    .carName{
+        font-size: 20px;
+    }
+    .booked_car_img p+p{
+        font-size: 13px;
+        font-weight:600;
+        letter-spacing: 1px;
+       }
+       .location{
+        width: 25px;
+       }
+}
