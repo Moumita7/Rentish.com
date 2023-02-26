@@ -6,8 +6,13 @@ import ItemCarousel from "../ProductsListing Page/ItemCarousel";
 import Cardetails from "./Cardetails";
 import GoogleMaps from "./GoogleMaps";
 import KeepinMind from "./KeepinMind";
+
+import PreBilling from "./PreBilling";
+import { useSelector, useDispatch } from "react-redux";
+=======
 import Loader from "./Loader";
 import PreBilling from "./PreBilling";
+
 
 const prod_deets_left_flex = {
   margin: "1%",
@@ -18,11 +23,19 @@ const prod_deets_left_flex = {
 };
 
 const ProductDetails = () => {
+  const products = useSelector((store) => store.ProductReducer);
+  const [loading, setLoading] = useState(false);
+  const [post, setPost] = useState([]);
+  const params = useParams();
+
+
+const ProductDetails = () => {
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
   const [post, setPost] = useState([]);
   const [price, setPrice] = useState(0);
   const params = useParams();
+
 
   const handleFetch = async (params) => {
     let authToken = localStorage.getItem("token");
@@ -37,14 +50,50 @@ const ProductDetails = () => {
         }
       );
       setPost(response.data.data);
+
       setPhotos(response.data.data[0].url);
       setPrice(response.data.data[0].per_hour_charge);
       localStorage.setItem("icardetails",JSON.stringify(response.data.data[0]));
+
+
+      console.log(response);
+
+      setPhotos(response.data.data[0].url)
+
       setLoading(false);
     } catch (e) {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    handleFetch(params);
+  }, []);
+  // console.log(params);
+  // console.log(post);
+  if (loading) {
+    console.log("Before Loading");
+    console.log(loading);
+    console.log(post[0]);
+    return <Text>...Loading</Text>;
+  }
+  console.log(post[0]);
+  console.log("after loading");
+  console.log(loading);
+  return (
+    <Flex direction={["column", "column", "row"]}>
+      <Box className="prod-deets-left-flex" style={prod_deets_left_flex}>
+        <ItemCarousel slidesImages={post[0]?.url} />
+        {
+            post.map((items) => <Text>{i}</Text>)
+        }
+        <Image
+          h="350px"
+          src="https://zoomcar-assets.zoomcar.com/48697/HostCarImage/host_car_image_48697c70ac20f-3863-4e69-995d-b66c338a7ef1.jpg20230115-62-mlpl90"
+          alt="car"
+          margin="auto"
+        />
+
 
   useEffect(() => {
     handleFetch(params);
@@ -61,6 +110,7 @@ const ProductDetails = () => {
     >
       <Box className="prod-deets-left-flex" style={prod_deets_left_flex}>
         <ItemCarousel slidesImages={photos} />
+
         <Cardetails {...post[0]} />
         <Flex
           direction={["column", "column", "row"]}
@@ -76,6 +126,9 @@ const ProductDetails = () => {
         </Flex>
       </Box>
 
+
+
+
       <Box className="prod-bill-right-flex">
         <PreBilling totalPrice={price} />
       </Box>
@@ -83,4 +136,6 @@ const ProductDetails = () => {
   );
 };
 
+// console.log(products)
+export default ProductDetails;
 export default ProductDetails;

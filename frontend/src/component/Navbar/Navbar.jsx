@@ -14,6 +14,7 @@ import {
   useDisclosure,
   ButtonGroup,
   Image,
+  Center,
 } from "@chakra-ui/react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
@@ -26,9 +27,12 @@ const Navbar = () => {
   // console.log(registerUser)
   const token = localStorage.getItem("token");
   console.log(token);
-  const isAdmin = localStorage.getItem("isAdmin");
   const userDetailsFromLs = JSON.parse(localStorage.getItem("userDetails"));
   // console.log(" userDetailsFromLs", userDetailsFromLs.userName);
+
+  const isAdmin = userDetailsFromLs.admin;
+  console.log(" admin",isAdmin);
+
 
   const [tryy, setTryy] = useState(true);
 
@@ -69,32 +73,12 @@ const Navbar = () => {
             Become a host
           </Button>
 
-          <div className="navv-linkss" id="navv-link">
-            {isAdmin === "true" ? (
+          <Box display={"flex"} gap="5" className="navv-linkss" id="navv-link" >
+         {isAdmin == true ? (
               <Link to={"/admin"}>
                 <button className="login-button">admin</button>
               </Link>
             ) : null}
-
-            {/* {
-        token?
-        <Link to="/profile"> <Text color={"white"}>
-        {userDetailsFromLs.name? userDetailsFromLs.name: <Link to='/login'><button className='login-button' >Login</button></Link> }
-        </Text></Link> 
-          :
-          <Link to='/login'><button className='login-button' >Login</button></Link>
-     
-       } */}
-            {/* 
-       {
-        token.length>0?
-       <Link to="/profile"> <Text  color={"white"} >{userDetailsFromLs.name}</Text></Link>
-       :
-       <Link to='/login'><button className='login-button' >Login</button></Link>
-
-       } */}
-
-            {/* <Link to='/login'><button className='login-button' >Login</button></Link> */}
 
             {token ? (
               <Link to="/profile">
@@ -105,7 +89,7 @@ const Navbar = () => {
                 <button className="login-button">Login</button>
               </Link>
             )}
-          </div>
+          </Box>
 
           <div className="hum">
             <Flex alignItems="center" className="hum-Menu">
@@ -122,7 +106,7 @@ const Navbar = () => {
                     className="hum-link"
                   >
                     {/* box */}
-                    <Box display={"flex"} gap="5" bg={"black"} h="auto">
+                    <Box display={"flex"} gap="5" bg={"blackAlpha.900"} justifyContent="center" borderRadius={"20"} flexDir="column" alignItems={"center"} textAlign="center" mb={"5"}>
                       <Image
                         w="20"
                         h="20"
@@ -130,21 +114,21 @@ const Navbar = () => {
                         src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-glyph-black-icon-png-image_691589.jpg"
                       />
                       <Flex flexDir={"column"}>
-                        <Text>{registerUser && registerUser.name}</Text>
+                        <Text color={"white"}>{userDetailsFromLs.userName}</Text>
 
-                        <Text>{registerUser && registerUser.email}</Text>
+                        <Text>{userDetailsFromLs.email}</Text>
                         {/* <Text color={"black"}>credit</Text> */}
 
-                        <Text>{registerUser && registerUser.phone}</Text>
+                        <Text>{userDetailsFromLs.phone}</Text>
                       </Flex>
                     </Box>
-                    <Text color={"black"}>credit</Text>
-                    <Text color={"black"}>city</Text>
+                    {/* <Text color={"black"}>credit</Text>
+                    <Text color={"black"}>city</Text> */}
                     <Link>
                       {" "}
-                      <Button onClick={handleLogout} color={"black"}>
+                     <Center> <Button bg=" #00BE2D" onClick={handleLogout} color={"black"}>
                         Log out
-                      </Button>
+                      </Button></Center>
                     </Link>
                   </DrawerBody>
                 </DrawerContent>
