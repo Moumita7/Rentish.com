@@ -13,7 +13,7 @@
 
 
 # Rentish (Full Stack Project)
-[(CLICK HERE) to visit 🔗](https://snazzy-jalebi-705089.netlify.app/)
+[(CLICK HERE) to visit 🔗](https://playful-kashata-5541e9.netlify.app/)
 
 Rentish is a website based on the concept of zoomcar. Here with the help of MERN stack we were able to build a complete website, which help you to book and rent self driven cars at ease. You can get all the availble cars which are there based on your choosen city.
 
