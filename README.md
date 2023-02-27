@@ -41,7 +41,7 @@ It is a full stack project which was build in a duration of 4 days with the help
 
 - [Harshit Sharma](https://github.com/sharma24harshit)
 - [Arnab Das](https://github.com/arnabdasrishi)
-- [Moumita](https://github.com/Moumita7)
+- [Moumita Das](https://github.com/Moumita7)
 - [Abhishek Ojha](https://github.com/AbhishekOjha5972)
 - [Abhishek Ojha](https://github.com/AbhishekOjha5972)
 - [Sumit_Shastrakar](https://github.com/sumitss085)
