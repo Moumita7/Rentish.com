@@ -76,6 +76,10 @@ The API Auth Mocker is commented out in (assorted-desk-4504/script/signup_login.
 ```
 
 TO USE OTHER APIs EVERY SIGNUP-LOGIN DATAS ARE MADE IN OBJECTS. JUST CONVERT IT TO JSON AND YOUR ARE READY TO SEND OR FETCH
+<img width="864" alt="1" src="https://user-images.githubusercontent.com/97180521/221492666-85b16948-5d5f-4bb8-98b3-b54b98936951.png">
+
+
+
 
 
 ## Feedback
