@@ -82,6 +82,9 @@ TO USE OTHER APIs EVERY SIGNUP-LOGIN DATAS ARE MADE IN OBJECTS. JUST CONVERT IT 
 
 <img width="909" alt="6" src="https://user-images.githubusercontent.com/97180521/221493516-0bd3fd1b-ac5d-43b3-b90f-2cdb2c5d2b95.png">
 
+<img width="916" alt="12" src="https://user-images.githubusercontent.com/97180521/221494535-ba5ab4c6-95c7-43c6-961c-c36435065b84.png">
+<img width="923" alt="22" src="https://user-images.githubusercontent.com/97180521/221494555-53d734f6-2e09-40e4-be70-30d04426f085.png">
+<img width="896" alt="222" src="https://user-images.githubusercontent.com/97180521/221494571-c49f232a-9387-4664-b400-0bea64b2fcb5.png">
 
 
 ## Feedback
