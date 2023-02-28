@@ -27,12 +27,12 @@ const Navbar = () => {
   // console.log(registerUser)
   const token = localStorage.getItem("token");
   console.log(token);
-  const userDetailsFromLs = JSON.parse(localStorage.getItem("userDetails"));
+  const userDetailsFromLs =
+    JSON.parse(localStorage.getItem("userDetails")) || null;
   // console.log(" userDetailsFromLs", userDetailsFromLs.userName);
 
-  const isAdmin = userDetailsFromLs.admin;
-  console.log(" admin",isAdmin);
-
+  const isAdmin = userDetailsFromLs?.admin;
+  // console.log(" admin",isAdmin);
 
   const [tryy, setTryy] = useState(true);
 
@@ -73,8 +73,8 @@ const Navbar = () => {
             Become a host
           </Button>
 
-          <Box display={"flex"} gap="5" className="navv-linkss" id="navv-link" >
-         {isAdmin == true ? (
+          <Box display={"flex"} gap="5" className="navv-linkss" id="navv-link">
+            {isAdmin == true ? (
               <Link to={"/admin"}>
                 <button className="login-button">admin</button>
               </Link>
@@ -82,7 +82,9 @@ const Navbar = () => {
 
             {token ? (
               <Link to="/profile">
-                <Text color={"white"}>{userDetailsFromLs.userName}</Text>
+                <Text color={"white"}>
+                  {userDetailsFromLs ? userDetailsFromLs.userName : ""}
+                </Text>
               </Link>
             ) : (
               <Link to="/login">
@@ -96,7 +98,7 @@ const Navbar = () => {
               <Button className="ham-btn" onClick={onOpen}>
                 <GiHamburgerMenu className="ham_new" />
               </Button>
-              <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}  >
+              <Drawer placement={"right"} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
                 <DrawerContent>
                   <DrawerBody
@@ -106,7 +108,18 @@ const Navbar = () => {
                     className="hum-link"
                   >
                     {/* box */}
-                    <Box display={"flex"} gap="5" bg={"blackAlpha.900"} justifyContent="center" borderRadius={"20"} flexDir="column" alignItems={"center"} textAlign="center" mb={"5"}  h={"auto"}>
+                    <Box
+                      display={"flex"}
+                      gap="5"
+                      bg={"blackAlpha.900"}
+                      justifyContent="center"
+                      borderRadius={"20"}
+                      flexDir="column"
+                      alignItems={"center"}
+                      textAlign="center"
+                      mb={"5"}
+                      h={"auto"}
+                    >
                       <Image
                         w="20"
                         h="20"
@@ -114,21 +127,34 @@ const Navbar = () => {
                         src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-profile-glyph-black-icon-png-image_691589.jpg"
                       />
                       <Flex flexDir={"column"}>
-                        <Text color={"white"}>{userDetailsFromLs.userName}</Text>
+                        <Text color={"white"}>
+                          {userDetailsFromLs ? userDetailsFromLs.userName : ""}
+                        </Text>
 
-                        <Text>{userDetailsFromLs.email}</Text>
+                        <Text>
+                          {userDetailsFromLs ? userDetailsFromLs.email : ""}
+                        </Text>
                         {/* <Text color={"black"}>credit</Text> */}
 
-                        <Text>{userDetailsFromLs.phone}</Text>
+                        <Text>
+                          {userDetailsFromLs ? userDetailsFromLs.phone : ""}
+                        </Text>
                       </Flex>
                     </Box>
                     {/* <Text color={"black"}>credit</Text>
                     <Text color={"black"}>city</Text> */}
                     <Link>
                       {" "}
-                     <Center> <Button bg=" #00BE2D" onClick={handleLogout} color={"black"}>
-                        Log out
-                      </Button></Center>
+                      <Center>
+                        {" "}
+                        <Button
+                          bg=" #00BE2D"
+                          onClick={handleLogout}
+                          color={"black"}
+                        >
+                          Log out
+                        </Button>
+                      </Center>
                     </Link>
                   </DrawerBody>
                 </DrawerContent>

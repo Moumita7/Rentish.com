@@ -27,6 +27,7 @@ const ProductListing = () => {
 
   const handleFetch = async () => {
     let authToken = localStorage.getItem("token");
+  try {
     const res = await axios.get(
       "https://worrisome-tick-tights.cyclic.app/cars",
       {
@@ -37,6 +38,11 @@ const ProductListing = () => {
     );
 
     setData(res.data.data);
+    
+  } catch (error) {
+    console.log(error)
+  }
+    
     // tokenFetcher();
   };
 

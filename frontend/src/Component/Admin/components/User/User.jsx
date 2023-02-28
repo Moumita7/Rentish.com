@@ -1,51 +1,3 @@
-// import { Box, Button, Flex, Select, Table, TableCaption, TableContainer, Tbody, Td, Text, Th, Thead, Tooltip, Tr } from '@chakra-ui/react'
-// import React, { useEffect, useState } from 'react'
-
-
-// const Users = () => {
-//      const { Toast } = UseToastMsg();
-
-
-
-
-
-//      return (
-//           <Box>
-          
-
-
-//                <Box>
-//                     <TableContainer>
-//                          <Table variant='simple'>
-//                               <TableCaption>Imperial to metric conversion factors</TableCaption>
-//                               <Thead>
-//                                    <Tr>
-//                                         <Th>S.no</Th>
-//                                         <Th>Username</Th>
-//                                         <Th>Email</Th>
-//                                         <Th>
-//                                              <Select cursor={'pointer'}>
-//                                                   <option defaultValue={'true'} value="all">All</option>
-//                                                   <option value="active">Active</option>
-//                                                   <option value="passive">Passive</option>
-//                                              </Select>
-//                                         </Th>
-//                                         <Th>Details</Th>
-//                                         <Th>Delete</Th>
-//                                    </Tr>
-//                               </Thead>
-//                               <Tbody>
-//                                 <p>jg</p>
-//                               </Tbody>
-//                          </Table>
-//                     </TableContainer>
-//                </Box>
-//           </Box>
-
-//      )
-// }
-
-// export default Users
 
 import { Box, Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Flex, Heading, Image, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 import React, { useEffect } from 'react'
@@ -69,9 +21,9 @@ useEffect(()=>{
     <div>
      <SimpleGrid columns={[1,2, 3, 4]} spacing='40px' w="90%" m="auto">
     {users.map((ele)=>(
-     <Box p="8" bg={"green.100"}>
-     <Box  p="10">
-      <Image src={ele.avatar} />
+     <Box p="8" bg={"green.100"} borderRadius="10" display={"flex"} flexDir="column" alignItems={"center"} justifyContent={"center"}>
+     <Box  >
+      <Image w="20"  src={ele.avatar} />
      </Box>
       <Heading size={"md"}>{ele.name}</Heading>
       <Text fontSize={"sm"}>{ele.email}</Text>
@@ -79,7 +31,7 @@ useEffect(()=>{
       <Text>{ele.city}</Text>
       <Text>{ele.gender}</Text>
       <Text>{ele.isActive}</Text>
-      <Flex justifyContent={"space-between"}>
+      <Flex justifyContent={"space-between"} gap="4">
         <Button>Update</Button>
         <Button>Delete</Button>
       </Flex>

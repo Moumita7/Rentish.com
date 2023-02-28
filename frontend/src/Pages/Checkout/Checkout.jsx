@@ -17,6 +17,9 @@ const Checkout = () => {
   const [mobileWallet, setMobileWallet] = useState(false);
   const [netBanking, setNetBanking] = useState(false);
 
+  const carDetails=JSON.parse(localStorage.getItem("icardetails"))
+// console.log("car",carDetails)
+
 
   const upiHandle = () =>{
     setUpi(true)
@@ -106,25 +109,25 @@ const Checkout = () => {
           <Box  padding="10px">
             <Box display="flex" alignItems="center">
               <Box width="60%">
-                <Text fontSize="20px" fontWeight="600" padding="10px 0px">{"Maruti Alot MT Petrol"}</Text>
+                <Text fontSize="20px" fontWeight="600" padding="10px 0px">{carDetails.car_title}</Text>
                 <Box display='flex' gap="10px">
                   <Text display="flex" alignItems="center"><GiGearStickPattern/>Manual</Text>
                   <Text display="flex"><GiFuelTank/>Petrol</Text>
                 </Box>
               </Box>
               <Box width="30%">
-                <Image src="https://zoomcar-assets.zoomcar.com/photographs/original/f5c5ae8e660cfadcd93e9d4fcc087ab25e325bf9.png?1663874155"/>
+                <Image src={carDetails.url[0]}/>
               </Box>
             </Box>
 
             <Box>
               <Box>
                 <Text marginTop="10px">{"Sun, 26 Feb, 11:00 PM"}</Text>
-                <Text color="gray">{"Ahmedabad"}</Text>
+                <Text color="gray">{carDetails.city}</Text>
               </Box>
               <Box>
                 <Text marginTop="10px">{"Sun, 26 Feb, 11:00 PM"}</Text>
-                <Text color="gray">{"Ahmedabad"}</Text>
+                <Text color="gray">{carDetails.city}</Text>
               </Box>
             </Box>
 

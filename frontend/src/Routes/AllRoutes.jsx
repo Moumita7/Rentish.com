@@ -20,6 +20,7 @@ import ProductListing from "../ProductsListing Page/ProductListing";
 import Result from "../pages/Home/result";
 import Admin from "../component/Admin/Home/Admin";
 import Users from "../component/Admin/components/User/User";
+import Checkout from "../pages/Checkout/Checkout";
 // import Profile from "../Pages/Profile/Profile";
 
 
@@ -61,6 +62,7 @@ export default function AllRoutes() {
         <Route path="/login" element={<Login />} />
 
         
+        <Route path="/checkout" element={<Checkout />} />
 
         <Route path="/products" element={<ProductListing />} />
 

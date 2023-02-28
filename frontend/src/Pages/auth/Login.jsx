@@ -86,7 +86,7 @@ const Login = () => {
           >
           <Image w="100%" src='https://www.zoomcar.com/build/fb65fcc43b8bededb813e093ea2d47d3.svg'/>
           <Heading pt="10" pb="10" fontSize={'4xl'} textAlign={'center'}>
-          Enter details to sign-up
+          Enter details to Login
           </Heading>
           <Stack spacing={4}>
             {/* <HStack> */}
@@ -121,13 +121,13 @@ const Login = () => {
           
   
               {/* phone */}
-              <InputGroup isRequired>
+              {/* <InputGroup isRequired>
               <InputLeftElement>
               <PhoneIcon/>
             
               </InputLeftElement>
               <Input placeholder='Enter Mobile Number'/>
-            </InputGroup>
+            </InputGroup> */}
             <Stack spacing={10} pt={2}>
             {/* {token ? 
               <Button

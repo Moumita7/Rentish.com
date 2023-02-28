@@ -18,7 +18,7 @@ function ItemCarousel({ slidesImages }) {
   }, [image]);
 
   return (
-    <Box w="100%" pos="relative" className="mainSlider">
+    <Box w="600px" pos="relative" className="mainSlider">
       <Box>
         <Image
           className="mainSliderimg"

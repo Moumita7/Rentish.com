@@ -144,7 +144,7 @@ const PreBilling = ({totalPrice=100}) => {
         <Heading mb="2rem" size="lg">
           <Text fontSize="sm">Total Price:</Text>₹ {Number(totalPrice)*time}/-
         </Heading>
-        <Button colorScheme="whatsapp" w="100%">
+        <Button onClick={()=>navigate("/checkout")} colorScheme="whatsapp" w="100%">
           Proceed to Pay
         </Button>
       </Box>
